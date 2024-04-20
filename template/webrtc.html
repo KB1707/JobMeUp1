@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Job Me Up Streams</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link  type='text/css' media='screen' rel="stylesheet" href="{{ url_for('static', filename='webrtc.css') }}" >
+
+</head>
+<body>
+
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    
+      
+    <button id="join">
+        <!-- <div class="content"> -->
+            <section class="skills">
+            <div class="skills-flex-container">
+                <div class="box">
+        <h1>Join Stream</h1>
+    </div>
+      <!-- </div> -->
+        </div>
+        </section>
+    </button>
+
+    <div id="stream-wrapper">
+        <div id="video"></div>
+
+        <div id="stream-controls">
+            <button id="leave">Leave Stream</button>
+            <button id="mic">Mic On</button>
+            <button id="camera">Camera on</button>
+        </div>
+    </div>
+
+</body>
+
+<script src="{{ url_for('static', filename='AgoraRTC_N-4.20.2.js') }}"></script>
+
+<script src="{{ url_for('static', filename='webrtc.js') }}"></script>
+
+
+</html>
