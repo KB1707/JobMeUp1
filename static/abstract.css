@@ -6,7 +6,7 @@ body {
   background-size: cover; /* Ensure the background image covers the entire screen */
 }
 
-.quiz-container {
+.quiz-container-7 {
   max-width: 500px;
   max-height: 800px;
   margin: 50px auto;
@@ -17,14 +17,27 @@ body {
   background-color: transparent;
   font-size: 20px;
   font-family: Helvetica;
+  position: relative;
+  animation: animateleft 1s;
 }
 
-#start-btn {
+@keyframes animateleft {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+#start-btn-7 {
   display: block;
   margin: 0 auto;
 }
 
-.options button {
+.options-7 button {
   margin: 0 0 2em 0;
   background-color: transparent;
   border: 1px solid #836255;
@@ -32,18 +45,19 @@ body {
   font-size: 18px;
   font-family: Helvetica;
   transition: all 0.3s ease; /* Add a smooth transition for hover effect */
+  animation: animateleft 1s;
 }
 
-.options button:hover {
+.options-7 button:hover {
   font-weight: bold; /* Bolden the text on hover */
 }
 
-.options .selected {
+.options-7 .selected {
   background-color: #6c210c; /* Highlight the selected option */
   color: #fff; /* Change text color to white */
 }
 
-.progress-bar {
+.progress-bar-7 {
   width: 100%;
   height: 20px;
   background-color: rgba(99, 68, 68, 0.5);
@@ -51,14 +65,14 @@ body {
   margin-bottom: 10px;
 }
 
-.progress {
+.progress-7 {
   width: 0;
   height: 100%;
   background-color: #6c210c;
   border-radius: 10px;
 }
 
-.question-box {
+.question-box-7 {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
@@ -68,17 +82,17 @@ body {
   font-family: Helvetica;
 }
 
-.question-container {
+.question-container-7 {
   margin-bottom: 20px;
   background-color: transparent;
 }
 
-.question {
+.question-7 {
   margin-bottom: 10px;
   color: #000;
 }
 
-.btn-container {
+.btn-container-7 {
   text-align: center;
 }
 
@@ -93,11 +107,11 @@ button {
   font-family: Helvetica;
 }
 
-.score-container {
+.score-container-7 {
   font-weight: bold;
   color: white;
 }
-.options button.selected {
+.options-7 button.selected {
   background-color: #6c210c;
   color: #fff;
 }
