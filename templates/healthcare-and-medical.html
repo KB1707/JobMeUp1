@@ -203,9 +203,171 @@
   transition: 
     bottom .6s linear;
 }
+
+.popup-container {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        overflow: hidden;
+    }
+
+    .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 95%;
+        transform: translate(-50%, -50%);
+        background-color: #3b252cff;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(12, 12, 12, 0.936);
+    }
+
+    .popup-content iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .popup-content .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 40px;
+        cursor: pointer;
+        color: black;
+    }
+    .header ul li:nth-child(1),
+.sci li:nth-child(1)
+{
+	animation-delay: 2s;
+}
+.header ul li:nth-child(2),
+.sci li:nth-child(2)
+{
+	animation-delay: 2.25s;
+}
+.header ul li:nth-child(3),
+.sci li:nth-child(3)
+{
+	animation-delay: 2.5s;
+}
+.header ul li:nth-child(4),
+.sci li:nth-child(4)
+{
+	animation-delay: 2.75s;
+}
+.header ul li:nth-child(5),
+.sci li:nth-child(5)
+{
+	animation-delay: 3s;
+}
+.header ul li:nth-child(6),
+.sci li:nth-child(6)
+{
+	animation-delay: 3.25s;
+}
+.header ul li:nth-child(7),
+.sci li:nth-child(7)
+{
+	animation-delay: 3.50s;
+}
+.header ul li:nth-child(8),
+.sci li:nth-child(8)
+{
+	animation-delay: 3.75s;
+}
+.sci li a
+{
+	font-size: 1.2em;
+	color: #070707dd;
+}
+.header
+{
+
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 80px;
+	padding: 0 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	margin-top:2rem;
+	z-index: 9999;
+}
+
+.header ul
+{
+	margin: 0;
+	padding: 0;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.header ul li
+{
+	opacity: 0;
+	list-style: none;
+	margin: 0 10px;
+	animation: fadeInRight 0.5s linear forwards;
+}
+
+.header ul li a
+{
+	text-decoration: none;
+	font-size: 1.2em;
+	color: black;
+	padding: 5px 10px;
+	letter-spacing: 2px;
+}
+.header ul li a.active,
+.header ul li a:hover
+{
+	background: black;
+	color: white;
+}
+@keyframes fadeInRight
+{
+	0%
+	{
+		transform: translateX(150px);
+		opacity: 0;
+	}
+	100%
+	{
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
   </style>
 </head>
 <body>
+  <header>
+    <div class="header">
+        <div>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#section2">About</a></li>
+            <li><a href="#section3">Features</a></li>
+            <li><a href="#">Career Exploration</a></li>
+            <li><a href="quiz">Quiz</a></li>
+            <li><a href="/videocall">Video Counselling</a></li>
+            <li><a href="/resume">Resume</a></li>
+            <li><a href="/job_posting">Job Postings</a></li>
+        </ul>
+    </div>
+    </div>
+</header>
   <div id="content">
     <!-- <h2>Content</h2>
     <p>This is where your content goes.</p> -->
@@ -234,11 +396,20 @@
     </div>
   </div>
   <div id="container"></div>
+
+  <div class="popup-container" id="popupContainer">
+    <div class="popup-content">
+      <span class="close-button" id="closePopup">&times;</span>
+      <iframe src="" frameborder="0" id="popupIframe"></iframe>
+    </div>
+  </div>
+
   <script>
     anychart.onDocumentReady(function(){
       var data = [
         {
-          name: "Healthcare and Medical",
+          name: "ROAD MAP",
+          link: "roadmap-healthcare-medicine.html",
           children: [
             { name: "Nurse", link: "nurse.html" },
             { name: "Physician", link: "physician.html" },
@@ -263,11 +434,16 @@
 
       chart.listen("pointClick", function(e) {
         if (e.point.get("link")) {
-          window.location.href = e.point.get("link");
+          //window.location.href = e.point.get("link");
+          document.getElementById("popupIframe").src = e.point.get("link");
+          document.getElementById("popupContainer").style.display = "block";
         }
       });
 
       chart.draw();
+      document.getElementById("closePopup").addEventListener("click", function() {
+        document.getElementById("popupContainer").style.display = "none";
+    });
     });
   </script>
 </body>
