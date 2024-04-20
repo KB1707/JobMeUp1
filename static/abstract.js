@@ -49,13 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentQuestionIndex = 0;
   let score = 0;
   let quizCompleted = false; // Flag to track if quiz has been completed
-  const quizContainer = document.getElementById("question-container");
+  const quizContainer = document.getElementById("question-container-7");
 
   function createQuestion(question, index) {
     quizContainer.innerHTML = `
-                        <div class="question">
+                        <div class="question-7">
                             <p>${question.question}</p>
-                            <ul class="options">
+                            <ul class="options-7">
                                 ${question.options
                                   .map(
                                     (option, i) =>
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     `;
 
-    const options = quizContainer.querySelectorAll(".options button");
+    const options = quizContainer.querySelectorAll(".options-7 button");
     options.forEach((option) => {
       option.addEventListener("click", () => {
         const selectedAnswer = option.getAttribute("data-answer");
@@ -78,9 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         options.forEach((opt) => opt.classList.remove("selected")); // Remove selected class from all options
         option.classList.add("selected"); // Add selected class to the clicked option
         option.disabled = true; // Disable the selected option
-        setTimeout(() => {
-          nextQuestion();
-        }, 1000); // Automatically move to the next question after 1 second
+        // Automatically move to the next question after 1 second
       });
     });
 
@@ -99,6 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  document.getElementById("next-btn-7").addEventListener("click", nextQuestion);
+
   function prevQuestion() {
     if (currentQuestionIndex > 0) {
       currentQuestionIndex--;
@@ -109,31 +109,31 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateProgressBar() {
     if (currentQuestionIndex >= 0) {
       const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
-      document.getElementById("progress").style.width = progress + "%";
+      document.getElementById("progress-7").style.width = progress + "%";
     }
   }
 
   function showScore() {
     const perscore = (score / questions.length) * 100;
     const normalized_score = ((perscore - 0) * (10 - 1)) / (100 - 0) + 1;
-    document.getElementById("score-container").textContent =
+    document.getElementById("score-container-7").textContent =
       "Your score: " + parseFloat(normalized_score.toFixed(2));
-    document.getElementById("submit-btn").style.display = "none"; // Hide the submit button
+    document.getElementById("submit-btn-7").style.display = "none"; // Hide the submit button
   }
 
-  document.getElementById("start-btn").addEventListener("click", () => {
-    document.getElementById("start-btn").style.display = "none";
-    document.getElementById("prev-btn").style.display = "inline-block"; // Show the prev button
-    document.getElementById("next-btn").style.display = "inline-block"; // Show the next button
+  document.getElementById("start-btn-7").addEventListener("click", () => {
+    document.getElementById("start-btn-7").style.display = "none";
+    document.getElementById("prev-btn-7").style.display = "inline-block"; // Show the prev button
+    document.getElementById("next-btn-7").style.display = "inline-block"; // Show the next button
     createQuestion(questions[currentQuestionIndex], currentQuestionIndex);
   });
 
   document
-    .getElementById("aptitudeTestForm")
+    .getElementById("aptitudeTestForm-7")
     .addEventListener("submit", (e) => {
       e.preventDefault();
     });
 
-  document.getElementById("prev-btn").addEventListener("click", prevQuestion);
-  document.getElementById("next-btn").addEventListener("click", nextQuestion);
+  document.getElementById("prev-btn-7").addEventListener("click", prevQuestion);
+  document.getElementById("next-btn-7").addEventListener("click", nextQuestion);
 });
