@@ -6,7 +6,7 @@ body {
   background-size: cover;
 }
 
-.quiz-container {
+.quiz-container-8 {
   max-width: auto;
   max-height: 800px;
   margin: 50px auto;
@@ -17,14 +17,27 @@ body {
   background-color: transparent;
   font-size: 20px;
   font-family: Helvetica;
+  position: relative;
+  animation: animateleft 1s;
 }
 
-#start-btn {
+@keyframes animateleft {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+#start-btn-8 {
   display: block;
   margin: 0 auto;
 }
 
-.options button {
+.options-8 button {
   margin: 0 0 2em 0;
   background-color: transparent;
   border: 1px solid #836255;
@@ -32,18 +45,19 @@ body {
   font-size: 18px;
   font-family: Helvetica;
   transition: all 0.3s ease;
+  animation: animateleft 1s;
 }
 
-.options button:hover {
+.options-8 button:hover {
   font-weight: bold;
 }
 
-.options .selected {
+.options-8 .selected {
   background-color: #6c210c;
   color: #fff;
 }
 
-.progress-bar {
+.progress-bar-8 {
   width: 100%;
   height: 20px;
   background-color: rgba(99, 68, 68, 0.5);
@@ -51,14 +65,14 @@ body {
   margin-bottom: 10px;
 }
 
-.progress {
+.progress-8 {
   width: 0;
   height: 100%;
   background-color: #6c210c;
   border-radius: 10px;
 }
 
-.question-box {
+.question-box-8 {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
@@ -68,17 +82,17 @@ body {
   font-family: Helvetica;
 }
 
-.question-container {
+.question-container-8 {
   margin-bottom: 20px;
   background-color: transparent;
 }
 
-.question {
+.question-8 {
   margin-bottom: 10px;
   color: #000;
 }
 
-.btn-container {
+.btn-container-8 {
   text-align: center;
 }
 
@@ -93,7 +107,7 @@ button {
   font-family: Helvetica;
 }
 
-.score-container {
+.score-container-8 {
   font-weight: bold;
   color: white;
 }
