@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>QUIZ</title>
+    <link href="{{ url_for('static', filename='quiz2.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='quiz3.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='abstract.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='numerical-test-css.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='ocean_index.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='perceptual_test.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='verbal.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='spatial-test-css.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <nav>
+      <!--Shows our position on the timeline-->
+      <div class="marker"></div>
+
+      <!--Draggable element-->
+      <div class="nav__track" data-draggable>
+        <ul class="nav__list">
+          <li>
+            <a href="#section_1" class="nav__link" data-link
+              ><span
+                >Basic <br />
+                Information
+              </span></a
+            >
+          </li>
+          <li>
+            <a href="#section_2" class="nav__link" data-link
+              ><span
+                >Are You<br />
+                Ready</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="#section_3" class="nav__link" data-link
+              ><span
+                >Numerical<br />
+                Aptitude</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="#section_4" class="nav__link" data-link
+              ><span
+                >Ocean<br />
+                Personality</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="#section_5" class="nav__link" data-link
+              ><span>Spatial <br />Aptitude</span></a
+            >
+          </li>
+          <li>
+            <a href="#section_6" class="nav__link" data-link
+              ><span
+                >Verbal<br />
+                Aptitude</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="#section_7" class="nav__link" data-link
+              ><span
+                >Abstract<br />
+                Personality</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="#section_8" class="nav__link" data-link
+              ><span
+                >Perceptual<br />
+                Aptitude</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="#section_9" class="nav__link" data-link
+              ><span>2016</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section id="section_1" style="--i: 0"></section>
+      <section id="section_2" style="--i: 1">
+        <div class="container">
+			<div class="text-container">
+				<p style="color: antiquewhite; width: 800px;">
+				  Embark on a journey of self-discovery and unlock your potential with our suite of engaging tests! Whether you're deciphering patterns in Abstract Aptitude, navigating the complexities of Spatial Aptitude or articulating your thoughts in Verbal Reasoning each test is a step towards understanding your unique talents. Dive into the Numerical Aptitude to play with numbers, or explore the depths of your personality with the OCEAN TEST. And don't forget the Perceptual Test to sharpen your senses. Approach each challenge with a serene mind and let curiosity be your guide. We're cheering for you—may good fortune accompany your quest for growth and knowledge. Let the excitement of exploration propel you forward. Good luck! 🍀✨
+				</p>
+        </div>
+      </section>
+      <section id="section_3" style="--i: 2">
+        <div class="quiz-container-3">
+          <div class="progress-bar-3">
+            <div class="progress-3" id="progress-3"></div>
+          </div>
+          <div class="question-box-3">
+            <div class="question-container-3" id="question-container-3">
+              <!-- Questions will be added here dynamically -->
+            </div>
+            <div class="btn-container-3">
+              <button id="start-btn-3">Start Quiz</button>
+              <button id="prev-btn-3" style="display: none">Previous</button>
+              <button id="next-btn-3" style="display: none">Next</button>
+              <button id="submit-btn-3" style="display: none">
+                Submit Quiz
+              </button>
+              <!-- New button for submitting quiz -->
+            </div>
+          </div>
+          <div class="score-container-3" id="score-container-3"></div>
+        </div>
+      </section>
+      <section id="section_4" style="--i: 3">
+        <div class="quiz-container-4">
+          <div class="progress-bar-4">
+            <div class="progress-4" id="progress-4"></div>
+          </div>
+          <div class="question-box-4">
+            <div class="question-container-4" id="question-container-4">
+              <!-- Questions will be added here dynamically -->
+            </div>
+            <div class="btn-container-4">
+              <button id="start-btn-4">Start Quiz</button>
+              <button id="prev-btn-4" style="display: none">Previous</button>
+              <button id="next-btn-4" style="display: none">Next</button>
+            </div>
+          </div>
+          <div class="score-container-4" id="score-container-4"></div>
+        </div>
+      </section>
+      <section id="section_5" style="--i: 4">
+        <div class="quiz-container-5">
+          <div class="progress-bar-5">
+            <div class="progress-5" id="progress-5"></div>
+          </div>
+          <div class="question-box-5">
+            <div class="question-container-5" id="question-container-5">
+              <!-- Questions will be added here dynamically -->
+            </div>
+            <div class="btn-container-5">
+              <button id="start-btn-5">Start Quiz</button>
+              <button id="prev-btn-5" style="display: none">Previous</button>
+              <button id="next-btn-5" style="display: none">Next</button>
+              <button id="submit-btn-5" style="display: none">
+                Submit Quiz
+              </button>
+              <!-- New button for submitting quiz -->
+            </div>
+          </div>
+          <div class="score-container-5" id="score-container-5"></div>
+        </div>
+      </section>
+      <section id="section_6" style="--i: 5">
+        <div class="quiz-container-6">
+          <div class="progress-bar-6">
+            <div class="progress-6" id="progress-6"></div>
+          </div>
+          <div class="question-box-6">
+            <div class="question-container-6" id="question-container-6">
+              <!-- Questions will be added here dynamically -->
+            </div>
+            <div class="btn-container-6">
+              <button id="start-btn-6">Start Quiz</button>
+              <button id="prev-btn-6" style="display: none">Previous</button>
+              <button id="next-btn-6" style="display: none">Next</button>
+            </div>
+          </div>
+          <div class="score-container-6" id="score-container-6"></div>
+        </div>
+      </section>
+      <section id="section_7" style="--i: 7">
+        <div class="quiz-container-7">
+          <div class="progress-bar-7">
+            <div class="progress-7" id="progress-7"></div>
+          </div>
+          <div class="question-box-7">
+            <div class="question-container-7" id="question-container-7">
+              <!-- Questions will be added here dynamically -->
+            </div>
+            <div class="btn-container-7">
+              <button id="start-btn-7">Start Quiz</button>
+              <button id="prev-btn-7" style="display: none">Previous</button>
+              <button id="next-btn-7" style="display: none">Next</button>
+              <button id="submit-btn-7" style="display: none">
+                Submit Quiz
+              </button>
+              <!-- New button for submitting quiz -->
+            </div>
+          </div>
+          <div class="score-container-7" id="score-container-7"></div>
+        </div>
+      </section>
+      <section id="section_8" style="--i: 8">
+        <div class="quiz-container-8">
+          <div class="progress-bar-8">
+            <div class="progress-8" id="progress-8"></div>
+          </div>
+          <div class="question-box-8">
+            <div class="question-container-8" id="question-container-8">
+              <!-- Questions will be added here dynamically -->
+            </div>
+            <div class="btn-container-8">
+              <button id="start-btn-8">Start Quiz</button>
+              <button id="prev-btn-8" style="display: none">Previous</button>
+              <button id="next-btn-8" style="display: none">Next</button>
+              <button id="submit-btn-8" style="display: none">
+                Submit Quiz
+              </button>
+              <!-- New button for submitting quiz -->
+            </div>
+          </div>
+          <div class="score-container-8" id="score-container-8"></div>
+        </div>
+      </section>
+      <section id="section_9" style="--i: 9">
+        <!-- <form id="testForm"  action="{{ url_for('predict')}}" method="post">
+        
+            <label for="oTest">O TEST:</label>
+            <input type="text" id="oTest" name="oTest"><br>
+            <label for="cTest">C TEST:</label>
+            <input type="text" id="cTest" name="cTest"><br>
+            <label for="eTest">E TEST:</label>
+            <input type="text" id="eTest" name="eTest"><br>
+            <label for="aTest">A TEST:</label>
+            <input type="text" id="aTest" name="aTest"><br>
+            <label for="nTest">N TEST:</label>
+            <input type="text" id="nTest" name="nTest"><br>
+            <label for="numericalTest">Numerical TEST:</label>
+            <input type="text" id="numericalTest" name="numericalTest"><br>
+            <label for="perceptualTest">Perceptual TEST:</label>
+            <input type="text" id="perceptualTest" name="perceptualTest"><br>
+            <label for="abstractTest">Abstract TEST:</label>
+            <input type="text" id="abstractTest" name="abstractTest"><br>
+            <label for="verbalTest">Verbal TEST:</label>
+            <input type="text" id="verbalTest" name="verbalTest"><br>
+            <label for="spatialTest">Spatial TEST:</label>
+            <input type="text" id="spatialTest" name="spatialTest"><br>
+          
+          <button type="submit">Submit</button>
+        </form> -->
+        <form  action="{{ url_for('predict')}}" method="post"   >
+          <input type="text" name="test1" placeholder="Test1"  id="test1" />
+            <input type="text" name="test2" placeholder="Test2"  id="test2" />
+        <input type="text" name="test3" placeholder="Test3"   id="test3" />
+            <input type="text" name="test4" placeholder="Test4"   id="test4" />
+            <input type="text" name="test5" placeholder="Test5" id="test5" />
+        <input type="text" name="test6" placeholder="Test6"  id="test6" />
+            <input type="text" name="test7" placeholder="Test7"  id="test7" />
+            <input type="text" name="test8" placeholder="Test8"  id="test8" />
+        <input type="text" name="test9" placeholder="Test9"  id="test9" />
+            <input type="text" name="test10" placeholder="Test10"  id="test10" />
+    
+            <button type="submit" class="btn btn-primary btn-block btn-large" >Submit</button>
+        </form>
+        
+      </section>
+    </main>
+    <!-- partial -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+    <script src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
+    <script src="{{ url_for('static', filename='quiz2.js') }}"></script>
+    <script src="{{ url_for('static', filename='quiz3.js') }}"></script>
+    <script src="{{ url_for('static', filename='verbal.js') }}"></script>
+    <script src="{{ url_for('static', filename='spatial-test.js') }}"></script>
+    <script src="{{ url_for('static', filename='perceptual_test.js') }}"></script>
+    <script src="{{ url_for('static', filename='ocean_index.js') }}"></script>
+    <script src="{{ url_for('static', filename='numerical-test.js') }}"></script>
+    <script src="{{ url_for('static', filename='abstract.js') }}"></script>
+  </body>
+</html>

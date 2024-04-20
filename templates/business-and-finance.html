@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sunburst Chart - Business and Finance</title>
+  <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-sunburst.min.js"></script>
+  <style type="text/css">      
+    html, body, #container { 
+      width: 100%; 
+      height: 100%; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    .chart-title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    anychart.onDocumentReady(function(){
+      var data = [
+        {
+          name: "Business and Finance",
+          children: [
+            { name: "Accountant", link: "accountant.html" },
+            { name: "Salesperson", link: "salesperson.html" },
+            { name: "Marketing Manager", link: "marketing-manager.html" },
+            { name: "Human Resources Manager", link: "human-resources-manager.html" },
+            { name: "Financial Analyst", link: "financial-analyst.html" },
+            { name: "Financial Planner", link: "financial-planner.html" },
+            { name: "HR Recruiter", link: "hr-recruiter.html" },
+            { name: "Market Research Analyst", link: "market-research-analyst.html" },
+            { name: "Financial Auditor", link: "financial-auditor.html" },
+            { name: "Financial Advisor", link: "financial-advisor.html" },
+            { name: "Investment Banker", link: "investment-banker.html" },
+            { name: "Tax Accountant", link: "tax-accountant.html" },
+            { name: "Quality Control Inspector", link: "quality-control-inspector.html" },
+            { name: "Product Manager", link: "product-manager.html" },
+            { name: "Market Researcher", link: "market-researcher.html" },
+            { name: "Insurance Underwriter", link: "insurance-underwriter.html" },
+            { name: "Tax Collector", link: "tax-collector.html" },
+            { name: "Administrative Officer", link: "administrative-officer.html" }
+          ]
+        }
+      ];
+
+      var chart = anychart.sunburst(data, "as-tree");
+      
+      chart.title("Business and Finance Careers");    
+      chart.container("container");
+
+      chart.listen("pointClick", function(e) {
+        if (e.point.get("link")) {
+          window.location.href = e.point.get("link");
+        }
+      });
+
+      chart.draw();
+    });
+  </script>
+</body>
+</html>

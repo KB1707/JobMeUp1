@@ -1,0 +1,23 @@
+.input-options {
+    margin-top: 20px;
+  }
+  
+  .input-options label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .input-options input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .input-options input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
