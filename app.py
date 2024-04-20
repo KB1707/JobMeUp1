@@ -486,6 +486,11 @@ def wildlife_conservationist():
 
 
 
+@app.route('/job_posting')
+def jon_posting():
+    return render_template('index.html')
+
+
 
 @app.route("/resume")
 def resume_builder():
@@ -522,21 +527,21 @@ def predict():
     output = round(prediction[0], 9)
 
     if output==0:
-        return render_template('health_care.html')
+        return render_template('healthcare-and-medical.html')
     elif output==1:
-         return render_template('Science.html')
+         return render_template('science-and-research.html')
     elif output==2:
-         return render_template('Engineering.html')
+         return render_template('engineering-and-technology.html')
     elif output==3:
-         return render_template('Design.html')
+         return render_template('design-and-creative-arts.html')
     elif output==4:
-         return render_template('Education.html')
+         return render_template('education.html')
     elif output==5:
-         return render_template('Business.html')
+         return render_template('business-and-finance.html')
     elif output==6:
-         return render_template('law.html')
+         return render_template('law-and-public-service.html')
     elif output==7:
-         return render_template('Media.html')
+         return render_template('media-and-communication.html')
     else:
         return render_template('webrtc.html')
 

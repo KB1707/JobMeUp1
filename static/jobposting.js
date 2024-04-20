@@ -31,7 +31,7 @@ document.querySelector('.skills-flex-container').addEventListener('click', async
                 const jobImage = document.createElement('div');
                 jobImage.classList.add('card-image');
                 const img = document.createElement('img');
-                img.src = job.company_logo; // Ensure this is the correct property containing the logo URL
+                img.src = "https://cors-anywhere.herokuapp.com/"+job.company_logo; // Ensure this is the correct property containing the logo URL
                 img.alt = 'Company Logo';
                 img.crossOrigin = 'anonymous'; // Set crossorigin attribute
                 // img.classList.add('responsive');
