@@ -1,8 +1,8 @@
-const quizContainer = document.getElementById("question-container");
-const progressBar = document.getElementById("progress");
-const scoreContainer = document.getElementById("score-container");
-const prevButton = document.getElementById("prev-btn");
-const nextButton = document.getElementById("next-btn");
+const quizContainer = document.getElementById("question-container-4");
+const progressBar = document.getElementById("progress-4");
+const scoreContainer = document.getElementById("score-container-4");
+const prevButton = document.getElementById("prev-btn-4");
+const nextButton = document.getElementById("next-btn-4");
 let currentQuestionIndex = 0;
 let score = {
   E: 0,
@@ -15,7 +15,7 @@ let score = {
 let questions = [];
 
 // Fetch the CSV file containing the questions
-fetch("questions.csv")
+fetch("static/questions.csv")
   .then((response) => response.text())
   .then((csv) => {
     loadQuestionsFromCSV(csv);
@@ -40,22 +40,22 @@ function loadQuestionsFromCSV(csv) {
 
 function createQuestion(question, index) {
   const questionDiv = document.createElement("div");
-  questionDiv.className = "question";
-  questionDiv.id = `question-${index}`; // Add unique ID to each question container
+  questionDiv.className = "question-4";
+  questionDiv.id = `question-4-${index}`; // Add unique ID to each question container
   questionDiv.innerHTML = `
     <p>${question.value}</p>
     <div class="options">
-      <button class="option-btn" data-value="1">Strongly Disagree</button> <br/>
-      <button class="option-btn" data-value="2">Disagree</button><br/>
-      <button class="option-btn" data-value="3">Neutral</button><br/>
-      <button class="option-btn" data-value="4">Agree</button><br/>
-      <button class="option-btn" data-value="5">Strongly Agree</button><br/>
+      <button class="option-btn-4" data-value="1">Strongly Disagree</button> <br/>
+      <button class="option-btn-4" data-value="2">Disagree</button><br/>
+      <button class="option-btn-4" data-value="3">Neutral</button><br/>
+      <button class="option-btn-4" data-value="4">Agree</button><br/>
+      <button class="option-btn-4" data-value="5">Strongly Agree</button><br/>
     </div>
   `;
   quizContainer.innerHTML = "";
   quizContainer.appendChild(questionDiv);
 
-  const optionButtons = questionDiv.querySelectorAll(".option-btn");
+  const optionButtons = questionDiv.querySelectorAll(".option-btn-4");
   optionButtons.forEach((button) => {
     button.addEventListener("click", () => {
       optionButtons.forEach((btn) => {
@@ -91,7 +91,7 @@ function createQuestion(question, index) {
     });
   });
 
-  const selectedOption = document.querySelector(".options .selected");
+  const selectedOption = document.querySelector(".options-4 .selected-4");
   if (selectedOption) {
     optionButtons.forEach((button) => {
       if (
@@ -106,11 +106,11 @@ function createQuestion(question, index) {
   nextButton.disabled = false;
 }
 
-const startButton = document.getElementById("start-btn");
+const startButton = document.getElementById("start-btn-4");
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
-  document.getElementById("prev-btn").style.display = "inline-block";
-  document.getElementById("next-btn").style.display = "inline-block";
+  document.getElementById("prev-btn-4").style.display = "inline-block";
+  document.getElementById("next-btn-4").style.display = "inline-block";
   createQuestion(questions[0], 0);
 });
 
@@ -144,8 +144,8 @@ function showScore() {
   `;
 
   scoreContainer.style.display = "block";
-  document.getElementById("prev-btn").style.display = "none";
-  document.getElementById("next-btn").style.display = "none";
+  document.getElementById("prev-btn-4").style.display = "none";
+  document.getElementById("next-btn-4").style.display = "none";
 
   console.log("Final scores:", scaledScores); // Final scores for each letter
 }
@@ -158,7 +158,7 @@ prevButton.addEventListener("click", () => {
       ((currentQuestionIndex + 1) / questions.length) * 100
     }%`;
 
-    const selectedOption = document.querySelector(".options .selected");
+    const selectedOption = document.querySelector(".options-4 .selected");
     if (selectedOption) {
       const value = parseInt(selectedOption.getAttribute("data-value"));
       score[questions[currentQuestionIndex].category] -= value; // Subtract the selected option's value from the score
@@ -169,7 +169,7 @@ prevButton.addEventListener("click", () => {
 nextButton.addEventListener("click", () => {
   const selectedOption =
     document.querySelector(".options .selected") ||
-    document.getElementById(`answer-${currentQuestionIndex}`);
+    document.getElementById(`answer-4-${currentQuestionIndex}`);
   if (selectedOption) {
     const value = parseInt(selectedOption.getAttribute("data-value"));
     score[questions[currentQuestionIndex].category] += value; // Add the selected option's value to the score
