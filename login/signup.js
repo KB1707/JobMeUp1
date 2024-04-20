@@ -10,17 +10,15 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 function validateForm() {
-    // Get form inputs
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var pno = document.getElementById("pno").value;
     var dob = document.getElementById("dob").value;
     var password = document.getElementById("password").value;
   
-    // Simple validation for empty fields
     if (name === "" || email === "" || pno === "" || dob === "" || password === "") {
       alert("All fields are required");
-      return false; // Prevent form submission
+      return false; 
     }
   
     var emailReq = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -37,22 +35,17 @@ function validateForm() {
     }
 
   
-    // Validate phone number format (10 digits)
     var pnoRegex = /^\d{10}$/;
     if (!pnoRegex.test(pno)) {
       alert("Phone number must be 10 digits");
-      return false; // Prevent form submission
+      return false; 
     }
   
-    // All validations passed, allow form submission
     return true;
   }
-  
-  // Add form submission event listener
   document.getElementById("signupForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
     if (validateForm()) {
-      // Form is valid, submit it
       this.submit();
     }
   });
