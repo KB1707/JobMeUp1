@@ -1,0 +1,100 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(background.jpg);
+  background-size: cover; /* Ensure the background image covers the entire screen */
+}
+
+.quiz-container {
+  max-width: 500px;
+  max-height: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+
+#start-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.options button {
+  margin: 0 0 2em 0;
+  background-color: transparent;
+  border: 1px solid #836255;
+  color: #000;
+  font-size: 18px;
+  font-family: Helvetica;
+  transition: all 0.3s ease; /* Add a smooth transition for hover effect */
+}
+
+.options button:hover {
+  font-weight: bold; /* Bolden the text on hover */
+}
+
+.options .selected {
+  background-color: #6c210c; /* Highlight the selected option */
+  color: #fff; /* Change text color to white */
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: rgba(99, 68, 68, 0.5);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: #6c210c;
+  border-radius: 10px;
+}
+
+.question-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.279);
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: Helvetica;
+}
+
+.question-container {
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+
+.question {
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #836255;
+  color: #000;
+  font-size: 18px;
+  font-family: Helvetica;
+}
+
+.score-container {
+  font-weight: bold;
+  color: white;
+}
