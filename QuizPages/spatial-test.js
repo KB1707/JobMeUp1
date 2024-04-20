@@ -1,49 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
-const questions = [
+  const questions = [
     {
       question: "What would the 3D shape look like from above?",
-      image: "https://res.cloudinary.com/picked/image/upload/q_60,h_600,f_auto/v1601661221/cms/free-spatial-reasoning-test-questions-and-answers-1601661221",
+      image: "spatial_1.png",
       options: ["A", "B", "C", "D"],
       answer: "A",
     },
     {
       question: "Which of the given shapes is the correct mirror image?",
-      image: "https://res.cloudinary.com/picked/image/upload/q_60,h_600,f_auto/v1601661222/cms/free-spatial-reasoning-test-questions-and-answers-1601661222",
+      image: "spatial_2.png",
       options: ["A", "B", "C", "D"],
       answer: "A",
     },
     {
-      question: "Which of the given shapes is the same 3D shape but in a different position?",
-      image: "https://res.cloudinary.com/picked/image/upload/q_60,h_600,f_auto/v1601661223/cms/free-spatial-reasoning-test-questions-and-answers-1601661223",
+      question:
+        "Which of the given shapes is the same 3D shape but in a different position?",
+      image: "spatial_3.png",
       options: ["A", "B", "C"],
       answer: "D",
     },
     {
-      question: "Choose the shape that could be the result if these two shapes were combined and no other changes were made.",
-      image: "https://res.cloudinary.com/picked/image/upload/q_60,h_600,f_auto/v1601661223/cms/free-spatial-reasoning-test-questions-and-answers-1601661223",
+      question:
+        "Choose the shape that could be the result if these two shapes were combined and no other changes were made.",
+      image: "spatial_4.png",
       options: ["A", "B", "C"],
       answer: "B",
     },
     {
       question: "Which of the boxes comes next in the sequence?",
-      image: "https://res.cloudinary.com/picked/image/upload/q_60,h_600,f_auto/v1645098985/cms/spatial-reasoning-tests-1645098985",
+      image: "spatial_5.png",
       options: ["A", "B", "C", "D", "E"],
       answer: "D",
     },
     {
-      question: "If the net was folded into a cube, which of the given shapes would it look like?",
-      image: "https://res.cloudinary.com/picked/image/upload/q_60,h_600,f_auto/v1601661222/cms/free-spatial-reasoning-test-questions-and-answers-1601661222",
+      question:
+        "If the net was folded into a cube, which of the given shapes would it look like?",
+      image: "spatial_6.png",
       options: ["A", "B", "C", "D"],
       answer: "D",
     },
     {
       question: " Which of the boxes comes next in the sequence?",
-      image: "https://res.cloudinary.com/picked/image/upload/q_60,h_600,f_auto/v1645099131/cms/spatial-reasoning-tests-1645099131",
+      image: "spatial_7.png",
       options: ["A", "B", "C", "D", "E"],
       answer: "A",
     },
   ];
-  
+
   let currentQuestionIndex = 0;
   let score = 0;
   let quizCompleted = false; // Flag to track if quiz has been completed
@@ -53,6 +56,11 @@ const questions = [
     quizContainer.innerHTML = `
                         <div class="question">
                             <p>${question.question}</p>
+                            ${
+                              question.image
+                                ? `<img src="${question.image}" alt="Question Image">`
+                                : ""
+                            }
                             <ul class="options">
                                 ${question.options
                                   .map(
@@ -65,7 +73,6 @@ const questions = [
                             </ul>
                         </div>
                     `;
-
     const options = quizContainer.querySelectorAll(".options button");
     options.forEach((option) => {
       option.addEventListener("click", () => {
