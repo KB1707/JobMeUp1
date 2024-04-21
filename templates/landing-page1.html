@@ -16,6 +16,9 @@
     
 </head>
 <body>
+    <div class="sticky-div">
+        <canvas class="illo"></canvas>
+      </div>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
     <script src="https://mediafiles.botpress.cloud/f58db687-d73e-4e76-9d85-19b04575947a/webchat/config.js" defer></script>
     <div class="open">
@@ -36,6 +39,7 @@
         </div>
         </div>
     </header>
+
     <section>
         <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
             <defs>
@@ -72,9 +76,7 @@
             <path fill="#3b252cff" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
         </svg>
 
-        <div class="sticky-div">
-          <canvas class="illo"></canvas>
-        </div>
+
 <div class="main-text">
     <div class="bannerText">
         <h2>JobMeUp</h2><br>
@@ -108,28 +110,77 @@
                   <!-- Column One -->
                   <div class="column">
                     <div class="card">
-                      <div class="icon">
-                        <i class="fa-solid fa-user"></i>
-                      </div>
+                     
                       <h3>QUIZ</h3>
+                      <div class="icon">
+                        <img src="{{ url_for('static', filename='bg.png') }}" alt="" id="icon1">
+                      </div>
                       <p id="typed-text-2">
-                      Take the quiz and Get your personalized domain suggestion which would suit you best according to your quiz scores.
+                        🎉 Step right up and dive into our thrilling quiz! 🎉
+
+                        Unlock the door to your perfect domain name! Tailored just for you, our quiz will whisk you away on a journey of discovery. As you navigate through the questions, we’ll be busy behind the scenes, crafting your ideal domain suggestion based on your unique responses.                       
+                        But wait, there’s more! To embark on this exciting adventure, all you need to do is sign in. So, what are you waiting for? Your personalized domain name is just a quiz away!
+                        Sign in now and let the magic begin! 🚀
                       </p>
                     </div>
                   </div>
                   <!-- Column Two -->
                   <div class="column">
                     <div class="card">
-                      <div class="icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                      </div>
+                     
                       <h3>Web RTC</h3>
+                      <div class="icon">
+                        <img src="{{ url_for('static', filename='webrtc.png') }}" alt="" id="icon2" width="5rem">
+                      </div>
                       <p id="typed-text-3">
-                        Get career Counselling from our experts through one-on-one video Counselling with them.
+                        🌟 Unleash your potential with our expert career counselling! 🌟
+                        Imagine having a personal guide on your journey to career success. Our experts are here to provide just that! Through one-on-one video counselling, they’ll offer insights and advice tailored to your unique aspirations and abilities.
+                        This isn’t just any counselling session - it’s a transformative experience that could redefine your career path. So why wait?
+                        Embark on your journey to career excellence today! Connect with our experts now! 🚀
                       </p>
                     </div>
                   </div>
-    
+                  <!-- Column Three -->
+                  <div class="column">
+                    <div class="card">
+                      <h3>Career Exploration Resources</h3>
+                      <div class="icon">
+                        <img src="{{ url_for('static', filename='career_explore.png') }}" alt="" id="icon3" width="5rem">
+                      </div>
+                      <p id="typed-text-4">
+                        🌟 Embark on a voyage of discovery with our Career Exploration Resources! 🌟
+
+                        Picture this: A sunburst chart, bursting with colors, each ray representing a different career path just waiting to be explored. This isn’t just a chart, it’s a roadmap to your future, illuminating the myriad of career possibilities that lie ahead.
+                        
+                        Our Career Exploration Resources don’t just inform you about different careers, they inspire you to envision your future in vivid color.
+                        
+                        So why wait? Dive in and let the sunburst chart guide you on your journey to career discovery!
+                        
+                        Start exploring now and let your future shine bright! 🚀
+                      </p>
+                    </div>
+                  </div>                  
+                   <!-- Column Four -->
+                   <div class="column">
+                    <div class="card">
+                      
+                      <h3>Resume Builder</h3>
+                      <div class="icon">
+                        <img src="{{ url_for('static', filename='resume.png') }}" alt="" id="icon4" width="5rem">
+                      </div>
+                      <p id="typed-text-5">
+                        🌟 Step into the spotlight with our Resume Builder! 🌟
+
+                        Imagine a tool so intuitive, it feels like it’s reading your mind. Our Resume Builder is designed to do just that. Simply add your details into the respective columns and watch as your resume comes to life!
+                        
+                        But this isn’t just any resume. It’s a reflection of your journey, your skills, and your potential, all beautifully presented in a professional format.
+                        
+                        So why wait? Your dream job could be just a resume away!
+                        
+                        Start building your resume now and step into your future! 🚀
+                      </p>
+                    </div>
+                  </div>   
 
                 </div>
               
@@ -264,6 +315,10 @@
   let typingStarted = {
       aboutUs: false,
       ourFeatures: false,
+      resume: false,
+      career:false,
+      job:false,
+
   };
 
   window.addEventListener("scroll", () => {
@@ -282,7 +337,7 @@
           const textElement2 = document.getElementById("typed-text-2");
 
           if (isVisible(ourFeaturesElement)) {
-              startTyping(textElement2, "Take the quiz and Get your personalized domain suggestion which would suit you best according to your quiz scores.");
+              startTyping(textElement2, " 🎉 Step right up and dive into our thrilling quiz!🎉 Unlock the door to your perfect domain name! Tailored just for you, our quiz will whisk you away on a journey of discovery. As you navigate through the questions, we’ll be busy behind the scenes, crafting your ideal domain suggestion based on your unique responses.   But wait, there’s more! To embark on this exciting adventure, all you need to do is sign in. So, what are you waiting for? Your personalized domain name is just a quiz away!Sign in now and let the magic begin! 🚀");
               typingStarted.ourFeatures = true; // Mark it as started
           }
       }
@@ -292,8 +347,28 @@
         const textElement3 = document.getElementById("typed-text-3");
 
         if (isVisible(webRtcElement)) {
-            startTyping(textElement3, "Get career Counselling from our experts through one-on-one video Counselling with them.");
+            startTyping(textElement3, "🌟 Unleash your potential with our expert career counselling! 🌟 Imagine having a personal guide on your journey to career success. Our experts are here to provide just that! Through one-on-one video counselling, they’ll offer insights and advice tailored to your unique aspirations and abilities. This isn’t just any counselling session - it’s a transformative experience that could redefine your career path. So why wait? Embark on your journey to career excellence today! Connect with our experts now! 🚀");
             typingStarted.webRtc = true; // Mark it as started
+        }
+    }
+
+    if (!typingStarted.resume) {
+        const resumeR = document.getElementById("section3"); // Same section but different text
+        const textElement4 = document.getElementById("typed-text-4");
+
+        if (isVisible(resumeR)) {
+            startTyping(textElement4, "🌟 Embark on a voyage of discovery with our Career Exploration Resources! 🌟Picture this: A sunburst chart, bursting with colors, each ray representing a different career path just waiting to be explored. This isn’t just a chart, it’s a roadmap to your future, illuminating the myriad of career possibilities that lie ahead.Our Career Exploration Resources don’t just inform you about different careers, they inspire you to envision your future in vivid color.So why wait? Dive in and let the sunburst chart guide you on your journey to career discovery!Start exploring now and let your future shine bright! 🚀");
+            typingStarted.resume = true; // Mark it as started
+        }
+    }
+
+    if (!typingStarted.job) {
+        const jobElement = document.getElementById("section3"); // Same section but different text
+        const textElement5 = document.getElementById("typed-text-5");
+
+        if (isVisible(jobElement)) {
+            startTyping(textElement5, "🌟 Step into the spotlight with our Resume Builder! Imagine a tool so intuitive, it feels like it’s reading your mind. Our Resume Builder is designed to do just that. Simply add your details into the respective columns and watch as your resume comes to life!But this isn’t just any resume. It’s a reflection of your journey, your skills, and your potential, all beautifully presented in a professional format.So why wait? Your dream job could be just a resume away!Start building your resume now and step into your future! 🚀");
+            typingStarted.job = true; // Mark it as started
         }
     }
 });

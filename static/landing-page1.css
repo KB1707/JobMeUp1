@@ -295,11 +295,12 @@ section {
   background: #aea4bfff;
 }
 .section3 {
-  margin-top: 90%;
+  margin-top: 80%;
+  overflow: scroll;
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   /* justify-content: center;
     align-items: center;*/
   background: #8f6593ff;
@@ -496,11 +497,30 @@ img {
 }
 .sticky-div {
   position: sticky;
-  z-index: 1;
+  z-index: 3;
   top: 3rem; /* Adjust this value as needed */
   left: 150rem;
   right: 100rem;
   height: 100vh;
-  width: 20%; /* Adjust the width as needed */
+  width: 25%; /* Adjust the width as needed */
   background-color: #ffffff00; /* Adjust background color as needed */
+}
+img#icon1 {
+  margin-left: 0;
+  width: 2rem;
+}
+
+img#icon2 {
+  margin-left: 0;
+  width: 2rem;
+}
+
+img#icon3 {
+  margin-left: 0;
+  width: 2rem;
+}
+
+img#icon4 {
+  margin-left: 0;
+  width: 2rem;
 }
