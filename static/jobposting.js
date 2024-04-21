@@ -28,19 +28,12 @@ document.querySelector('.skills-flex-container').addEventListener('click', async
                 const jobCard = document.createElement('div');
                 jobCard.classList.add('card');
             
-                const jobImage = document.createElement('div');
-                jobImage.classList.add('card-image');
-                const img = document.createElement('img');
-                img.src = "https://cors-anywhere.herokuapp.com/"+job.company_logo; // Ensure this is the correct property containing the logo URL
-                img.alt = 'Company Logo';
-                img.crossOrigin = 'anonymous'; // Set crossorigin attribute
-                // img.classList.add('responsive');
-                jobImage.appendChild(img);
+            
             
                 const jobInner = document.createElement('div');
                 jobInner.classList.add('card-inner');
             
-                const jobTitle = document.createElement('h3');
+                const jobTitle = document.createElement('h2');
                 jobTitle.classList.add('text', 'text-title');
                 jobTitle.textContent = job.title;
             
@@ -48,7 +41,7 @@ document.querySelector('.skills-flex-container').addEventListener('click', async
                 // jobDescription.classList.add('paragraph', 'truncate');
                 // jobDescription.innerHTML = job.description;
             
-                const jobSalary = document.createElement('h2');
+                const jobSalary = document.createElement('h3');
                 jobSalary.classList.add('text');
                 jobSalary.innerHTML = job.salary; // Use innerHTML to render HTML description
             
@@ -61,7 +54,6 @@ document.querySelector('.skills-flex-container').addEventListener('click', async
                 // jobInner.appendChild(jobDescription);
                 jobInner.appendChild(jobSalary);
                 jobInner.appendChild(applyLink);
-                jobCard.appendChild(jobImage);
                 jobCard.appendChild(jobInner);
             
                 jobContainer.appendChild(jobCard);
