@@ -86,19 +86,17 @@
     </div>
 
 </div>
-
-
-        <ul class="sci">
+        <!-- <ul class="sci">
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-        </ul>
+        </ul> -->
     </section>
     <section class="section2" id ="section2">
         <div class="content">
             <h2 class="slideInLeft">About Us</h2>
-            <p>JobMeUp is a one-stop solution for career development and job search that is tailored to the needs of the modern workforce. This platform aims to empower users to make informed career decisions, equip them with the tools they need to succeed in their chosen path, and connect them with relevant job opportunities.</p>
+            <p id="typed-text-1">JobMeUp is a one-stop solution for career development and job search that is tailored to the needs of the modern workforce. This platform aims to empower users to make informed career decisions, equip them with the tools they need to succeed in their chosen path, and connect them with relevant job opportunities.</p>
     </section>
     <section class="section3" id="section3">
         <div class="content">
@@ -114,7 +112,7 @@
                         <i class="fa-solid fa-user"></i>
                       </div>
                       <h3>QUIZ</h3>
-                      <p>
+                      <p id="typed-text-2">
                       Take the quiz and Get your personalized domain suggestion which would suit you best according to your quiz scores.
                       </p>
                     </div>
@@ -126,7 +124,7 @@
                         <i class="fa-solid fa-shield-halved"></i>
                       </div>
                       <h3>Web RTC</h3>
-                      <p>
+                      <p id="typed-text-3">
                         Get career Counselling from our experts through one-on-one video Counselling with them.
                       </p>
                     </div>
@@ -245,4 +243,71 @@
               </footer>
                     
 </body>
+<script>
+  function startTyping(targetElement, text) {
+      let index = 0; // Initial index
+
+      function typeText() {
+          if (index >= text.length) {
+              return; // Stop if we've reached or exceeded the text length
+          }
+
+          const char = text.charAt(index); // Current character
+          if (char === "\n") {
+              targetElement.innerHTML += "<br/>";
+          } else {
+              targetElement.textContent += char; // Add the current character
+          }
+
+          index++; // Increment index
+          setTimeout(typeText, 50); // Adjust the speed as needed
+      }
+
+      targetElement.textContent = ""; // Clear the text content
+      typeText(); // Start the typing animation
+  }
+
+  function isVisible(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0; // Check if the element is visible
+  }
+
+  let typingStarted = {
+      aboutUs: false,
+      ourFeatures: false,
+  };
+
+  window.addEventListener("scroll", () => {
+      if (!typingStarted.aboutUs) {
+          const aboutUsElement = document.getElementById("section2");
+          const textElement1 = document.getElementById("typed-text-1");
+
+          if (isVisible(aboutUsElement)) {
+              startTyping(textElement1, "JobMeUp is a one-stop solution for career development and job search that is tailored to the needs of the modern workforce. This platform aims to empower users to make informed career decisions, equip them with the tools they need to succeed in their chosen path, and connect them with relevant job opportunities.");
+              typingStarted.aboutUs = true; // Mark it as started
+          }
+      }
+
+      if (!typingStarted.ourFeatures) {
+          const ourFeaturesElement = document.getElementById("section3");
+          const textElement2 = document.getElementById("typed-text-2");
+
+          if (isVisible(ourFeaturesElement)) {
+              startTyping(textElement2, "Take the quiz and Get your personalized domain suggestion which would suit you best according to your quiz scores.");
+              typingStarted.ourFeatures = true; // Mark it as started
+          }
+      }
+
+      if (!typingStarted.webRtc) {
+        const webRtcElement = document.getElementById("section3"); // Same section but different text
+        const textElement3 = document.getElementById("typed-text-3");
+
+        if (isVisible(webRtcElement)) {
+            startTyping(textElement3, "Get career Counselling from our experts through one-on-one video Counselling with them.");
+            typingStarted.webRtc = true; // Mark it as started
+        }
+    }
+});
+
+</script>
 </html>

@@ -1,23 +1,58 @@
-.input-options {
-    margin-top: 20px;
-  }
-  
-  .input-options label {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .input-options input[type="text"] {
-    width: 300px;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .input-options input[type="text"]:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
+/* Base styling for the form */
+#testForm {
+  background: #f0f0f0; /* Soft background color */
+  padding: 20px; /* Padding inside the form */
+  border-radius: 10px; /* Rounded corners */
+
+  margin: 0 auto; /* Center the form */
+  width: 50rem;
+  border: 15px solid rgb(37 38 41);
+  border-radius: 5px;
+}
+
+/* Split input fields into two columns */
+.input-container {
+  display: flex; /* Use flex layout to create columns */
+  justify-content: space-between; /* Space out the two columns */
+  gap: 30px; /* Add space between columns */
+}
+
+.input-column {
+  flex: 1; /* Each column takes equal width */
+}
+
+/* Style the input fields */
+#testForm input {
+  width: 100%; /* Full width within each column */
+  padding: 10px; /* Padding inside the inputs */
+  margin-bottom: 10px; /* Space between inputs */
+  border: 1px solid #ccc; /* Border for the inputs */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Style the labels */
+#testForm label {
+  font-weight: bold; /* Bold text for labels */
+  color: #333; /* Dark text color */
+  display: block; /* Labels should take the whole width */
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+/* Style the submit button */
+#main-submit {
+  background: white; /* Green background for the button */
+  color: rgb(37 38 41); /* White text color */
+  padding: 12px 20px; /* Padding inside the button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  border: 3px solid rgb(37 38 41);
+  transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for the submit button */
+#main-submit:hover {
+  background: rgb(37 38 41);
+  color: white; /* Darker green on hover */
+}
