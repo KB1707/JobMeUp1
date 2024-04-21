@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie-edge" />
     
     <link href="{{ url_for('static', filename='landing-page1.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='bear.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://webchat-styler-css.botpress.app/prod/code/bccd6999-ac74-47a4-aea6-001e1c54c493/v41495/style.css">
    
@@ -74,7 +75,9 @@
             <path fill="#3b252cff" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
         </svg>
 
-
+        <div class="sticky-div">
+          <canvas class="illo"></canvas>
+        </div>
 <div class="main-text">
     <div class="bannerText">
         <h2>JobMeUp</h2><br>
@@ -243,6 +246,7 @@
               </footer>
                     
 </body>
+<script src="{{ url_for('static', filename='bear.js') }}"></script>
 <script>
   function startTyping(targetElement, text) {
       let index = 0; // Initial index
