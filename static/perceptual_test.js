@@ -2,43 +2,43 @@ document.addEventListener("DOMContentLoaded", function () {
   const questions = [
     {
       question: "Choose the correct top view.",
-      image: "/Sidharth/scrollable page/dist/Perceptual images/perceptual-img1.jpg",
+      image: "static/perceptual-img1.jpg",
       options: ["A", "B", "C", "D"],
       answer: "C",
     },
     {
       question: "In figure A, how many cubes have 3 of their sides painted?",
-      image: "/Sidharth/scrollable page/dist/Perceptual images/perceptual-img2.jpg",
+      image: "static/perceptual-img2.jpg",
       options: ["A.4", "B.5", "C.6", "D.7"],
       answer: "C",
     },
     {
       question: "Choose the correct option?",
-      image: "/Sidharth/scrollable page/dist/Perceptual images/perceptual-img3.jpg",
+      image: "static/perceptual-img3.jpg",
       options: ["A", "B", "C", "D"],
       answer: "A",
     },
     {
       question: "Choose the correct option?",
-      image: "/Sidharth/scrollable page/dist/Perceptual images/perceptual-img4.jpg",
+      image: "static/perceptual-img4.jpg",
       options: ["A", "B", "C", "D"],
       answer: "B",
     },
     {
       question: "Choose the correct FRONT VIEW",
-      image: "/Sidharth/scrollable page/dist/Perceptual images/perceptual-img5.jpg",
+      image: "static/perceptual-img5.jpg",
       options: ["A", "B", "C", "D"],
       answer: "D",
     },
     {
       question: " Choose the correct option",
-      image: "/Sidharth/scrollable page/dist/Perceptual images/perceptual-img6.jpg",
+      image: "static/perceptual-img6.jpg",
       options: ["A", "B", "C", "D"],
       answer: "D",
     },
     {
       question: "Arrange in increasing order of angle magnitude",
-      image: "/Sidharth/scrollable page/dist/Perceptual images/perceptual-img7.jpg",
+      image: "static/perceptual-img7.jpg",
       options: [
         "A. 2 - 1 - 3 - 4",
         "B. 1 - 2 - 3 - 4",

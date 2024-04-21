@@ -15,7 +15,7 @@ let score = {
 let questions = [];
 
 // Fetch the CSV file containing the questions
-fetch("/Sidharth/scrollable page/dist/CSV Pages/questions.csv")
+fetch("static/questions.csv")
   .then((response) => response.text())
   .then((csv) => {
     loadQuestionsFromCSV(csv);
