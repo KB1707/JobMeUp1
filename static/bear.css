@@ -1,0 +1,8 @@
+canvas.illo {
+  display: block;
+  margin: auto 20px;
+  cursor: move;
+  width: 50%;
+  margin-left: -8rem;
+  margin-right: 10rem;
+}
