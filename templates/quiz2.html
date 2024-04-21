@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>QUIZ</title>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+    <script src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
     <link href="{{ url_for('static', filename='quiz2.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='quiz3.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='abstract.css') }}" rel="stylesheet">
@@ -11,6 +15,8 @@
     <link href="{{ url_for('static', filename='perceptual_test.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='verbal.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='spatial-test-css.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='bear.css') }}" rel="stylesheet">
+
   </head>
   <body>
     <!-- partial:index.partial.html -->
@@ -245,10 +251,7 @@
       
     </main>
     <!-- partial -->
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
-    <script src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
+
     <script src="{{ url_for('static', filename='quiz2.js') }}"></script>
     <script src="{{ url_for('static', filename='quiz3.js') }}"></script>
     <script src="{{ url_for('static', filename='verbal.js') }}"></script>
@@ -257,5 +260,9 @@
     <script src="{{ url_for('static', filename='ocean_index.js') }}"></script>
     <script src="{{ url_for('static', filename='numerical-test.js') }}"></script>
     <script src="{{ url_for('static', filename='abstract.js') }}"></script>
+    
+    <script src="https://unpkg.com/zdog@1/dist/zdog.dist.js"></script>
+        <script src="{{ url_for('static', filename='bear.js') }}"></script>
+
   </body>
 </html>
