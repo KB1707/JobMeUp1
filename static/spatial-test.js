@@ -2,40 +2,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const questions = [
     {
       question: "What would the 3D shape look like from above?",
-      image: "/Sidharth/scrollable page/dist/Spatial images/spatial_1.png",
+      image: "static/spatial_1.png",
       options: ["A", "B", "C", "D"],
       answer: "A",
     },
     {
       question: "Which of the given shapes is the correct mirror image?",
-      image: "/Sidharth/scrollable page/dist/Spatial images/spatial_2.png",
+      image: "static/spatial_2.png",
       options: ["A", "B", "C", "D"],
       answer: "A",
     },
     {
       question:
         "Which of the given shapes is the same 3D shape but in a different position?",
-      image: "/Sidharth/scrollable page/dist/Spatial images/spatial_3.png",
+      image: "static/spatial_3.png",
       options: ["A", "B", "C"],
       answer: "D",
     },
     {
       question:
         "Choose the shape that could be the result if these two shapes were combined and no other changes were made.",
-      image: "/Sidharth/scrollable page/dist/Spatial images/spatial_4.png",
+      image: "static/spatial_4.png",
       options: ["A", "B", "C"],
       answer: "B",
     },
     {
       question: "Which of the boxes comes next in the sequence?",
-      image: "/Sidharth/scrollable page/dist/Spatial images/spatial_5.png",
+      image: "static/spatial_5.png",
       options: ["A", "B", "C", "D", "E"],
       answer: "D",
     },
     {
       question:
         "If the net was folded into a cube, which of the given shapes would it look like?",
-      image: "/Sidharth/scrollable page/dist/Spatial images/spatial_6.png",
+      image: "static/spatial_6.png",
       options: ["A", "B", "C", "D"],
       answer: "D",
     },
