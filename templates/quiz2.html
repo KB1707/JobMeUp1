@@ -6,7 +6,7 @@
     <link href="{{ url_for('static', filename='quiz2.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='quiz3.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='abstract.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='numerical-test-css.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='numerical-test.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='ocean_index.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='perceptual_test.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='verbal.css') }}" rel="stylesheet">
@@ -222,45 +222,25 @@
         </div>
       </section>
       <section id="section_9" style="--i: 9">
-        <form id="testForm">
-          <div class="input-container"> <!-- Wrapper for the two columns -->
-            <div class="input-column left-column"> <!-- Left column for the first 5 fields -->
-              <label for="oTest">O TEST:</label>
-              <input type="text" id="oTest" name="oTest">
-              
-              <label for="cTest">C TEST:</label>
-              <input type="text" id="cTest" name="cTest">
-              
-              <label for="eTest">E TEST:</label>
-              <input type="text" id="eTest" name="eTest">
-              
-              <label for="aTest">A TEST:</label>
-              <input type="text" id="aTest" name="aTest">
-              
-              <label for="nTest">N TEST:</label>
-              <input type="text" id="nTest" name="nTest">
-            </div>
-      
-            <div class="input-column right-column"> <!-- Right column for the remaining 5 fields -->
-              <label for="numericalTest">Numerical TEST:</label>
-              <input type="text" id="numericalTest" name="numericalTest">
-              
-              <label for="perceptualTest">Perceptual TEST:</label>
-              <input type="text" id="perceptualTest" name="perceptualTest">
-              
-              <label for="abstractTest">Abstract TEST:</label>
-              <input type="text" id="abstractTest" name="abstractTest">
-              
-              <label for="verbalTest">Verbal TEST:</label>
-              <input type="text" id="verbalTest" name="verbalTest">
-              
-              <label for="spatialTest">Spatial TEST:</label>
-              <input type="text" id="spatialTest" name="spatialTest">
-            </div>
-          </div>
-          
-          <button type="submit" id="main-submit">Submit</button> <!-- Submit button -->
+         
+        <form  action="{{ url_for('predict')}}" method="post" class="form-style"   >
+          O TEST SCORE:<input type="text" name="test1" class="test"  id="test1" />
+          C TEST SCORE: <input type="text" name="test2" class="test"   id="test2" />
+          E TEST SCORE:<input type="text" name="test3" class="test"  id="test3" />
+          A TEST SCORE: <input type="text" name="test4" class="test"   id="test4" />
+          N TEST SCORE:<input type="text" name="test5" class="test" id="test5" />
+        NUMERICAL APTITUDE SCORE:<input type="text" name="test6"  class="test"  id="test6" />
+           SPATIAL APTITUTE SCORE <input type="text" name="test7"  class="test" id="test7" />
+        VERBAL TEST SCORE:<input type="text" name="test9" class="test"  id="test9" />
+           ABSTRACT TEST SCORE: <input type="text" name="test10" class="test"  id="test10" />
+           PERCEPTUAL APTITUDE SCORE: <input type="text" name="test8" class="test"  id="test8" />
+    
+            <button type="submit" class="btn btn-primary btn-block btn-large" >Submit</button>
         </form>
+
+
+
+
       </section>
       
     </main>
