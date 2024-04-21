@@ -21,14 +21,7 @@
       <!--Draggable element-->
       <div class="nav__track" data-draggable>
         <ul class="nav__list">
-          <li>
-            <a href="#section_1" class="nav__link" data-link
-              ><span
-                >Basic <br />
-                Information
-              </span></a
-            >
-          </li>
+         
           <li>
             <a href="#section_2" class="nav__link" data-link
               ><span
@@ -92,11 +85,14 @@
     </nav>
 
     <main>
-      <section id="section_1" style="--i: 0"></section>
+      <div class="sticky-div">
+        <canvas class="illo"></canvas>
+      </div>
+      
       <section id="section_2" style="--i: 1">
         <div class="container">
 			<div class="text-container">
-				<p style="color: antiquewhite; width: 800px;">
+				<p style="color: antiquewhite; width: 800px;" id="typed-text">
 				  Embark on a journey of self-discovery and unlock your potential with our suite of engaging tests! Whether you're deciphering patterns in Abstract Aptitude, navigating the complexities of Spatial Aptitude or articulating your thoughts in Verbal Reasoning each test is a step towards understanding your unique talents. Dive into the Numerical Aptitude to play with numbers, or explore the depths of your personality with the OCEAN TEST. And don't forget the Perceptual Test to sharpen your senses. Approach each challenge with a serene mind and let curiosity be your guide. We're cheering for you—may good fortune accompany your quest for growth and knowledge. Let the excitement of exploration propel you forward. Good luck! 🍀✨
 				</p>
         </div>
@@ -113,7 +109,7 @@
             <div class="btn-container-3">
               <button id="start-btn-3">Start Quiz</button>
               <button id="prev-btn-3" style="display: none">Previous</button>
-              <button id="next-btn-3" style="display: none">Next</button>
+              <button id="next-btn-3" style="display: none">Next<br/><br/></button>
               <button id="submit-btn-3" style="display: none">
                 Submit Quiz
               </button>
@@ -226,47 +222,47 @@
         </div>
       </section>
       <section id="section_9" style="--i: 9">
-        <!-- <form id="testForm"  action="{{ url_for('predict')}}" method="post">
-        
-            <label for="oTest">O TEST:</label>
-            <input type="text" id="oTest" name="oTest"><br>
-            <label for="cTest">C TEST:</label>
-            <input type="text" id="cTest" name="cTest"><br>
-            <label for="eTest">E TEST:</label>
-            <input type="text" id="eTest" name="eTest"><br>
-            <label for="aTest">A TEST:</label>
-            <input type="text" id="aTest" name="aTest"><br>
-            <label for="nTest">N TEST:</label>
-            <input type="text" id="nTest" name="nTest"><br>
-            <label for="numericalTest">Numerical TEST:</label>
-            <input type="text" id="numericalTest" name="numericalTest"><br>
-            <label for="perceptualTest">Perceptual TEST:</label>
-            <input type="text" id="perceptualTest" name="perceptualTest"><br>
-            <label for="abstractTest">Abstract TEST:</label>
-            <input type="text" id="abstractTest" name="abstractTest"><br>
-            <label for="verbalTest">Verbal TEST:</label>
-            <input type="text" id="verbalTest" name="verbalTest"><br>
-            <label for="spatialTest">Spatial TEST:</label>
-            <input type="text" id="spatialTest" name="spatialTest"><br>
+        <form id="testForm">
+          <div class="input-container"> <!-- Wrapper for the two columns -->
+            <div class="input-column left-column"> <!-- Left column for the first 5 fields -->
+              <label for="oTest">O TEST:</label>
+              <input type="text" id="oTest" name="oTest">
+              
+              <label for="cTest">C TEST:</label>
+              <input type="text" id="cTest" name="cTest">
+              
+              <label for="eTest">E TEST:</label>
+              <input type="text" id="eTest" name="eTest">
+              
+              <label for="aTest">A TEST:</label>
+              <input type="text" id="aTest" name="aTest">
+              
+              <label for="nTest">N TEST:</label>
+              <input type="text" id="nTest" name="nTest">
+            </div>
+      
+            <div class="input-column right-column"> <!-- Right column for the remaining 5 fields -->
+              <label for="numericalTest">Numerical TEST:</label>
+              <input type="text" id="numericalTest" name="numericalTest">
+              
+              <label for="perceptualTest">Perceptual TEST:</label>
+              <input type="text" id="perceptualTest" name="perceptualTest">
+              
+              <label for="abstractTest">Abstract TEST:</label>
+              <input type="text" id="abstractTest" name="abstractTest">
+              
+              <label for="verbalTest">Verbal TEST:</label>
+              <input type="text" id="verbalTest" name="verbalTest">
+              
+              <label for="spatialTest">Spatial TEST:</label>
+              <input type="text" id="spatialTest" name="spatialTest">
+            </div>
+          </div>
           
-          <button type="submit">Submit</button>
-        </form> -->
-        <form  action="{{ url_for('predict')}}" method="post"   >
-          <input type="text" name="test1" placeholder="Test1"  id="test1" />
-            <input type="text" name="test2" placeholder="Test2"  id="test2" />
-        <input type="text" name="test3" placeholder="Test3"   id="test3" />
-            <input type="text" name="test4" placeholder="Test4"   id="test4" />
-            <input type="text" name="test5" placeholder="Test5" id="test5" />
-        <input type="text" name="test6" placeholder="Test6"  id="test6" />
-            <input type="text" name="test7" placeholder="Test7"  id="test7" />
-            <input type="text" name="test8" placeholder="Test8"  id="test8" />
-        <input type="text" name="test9" placeholder="Test9"  id="test9" />
-            <input type="text" name="test10" placeholder="Test10"  id="test10" />
-    
-            <button type="submit" class="btn btn-primary btn-block btn-large" >Submit</button>
+          <button type="submit" id="main-submit">Submit</button> <!-- Submit button -->
         </form>
-        
       </section>
+      
     </main>
     <!-- partial -->
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>

@@ -6,20 +6,7 @@ import lodashThrottle from "https://cdn.skypack.dev/lodash.throttle@4.1.1";
 // gsap.registerPlugin(ScrollTrigger);
 
 
-window.onscroll = function () {
-    const section5 = document.getElementById('section_9'); // Replace 'section_5' with the actual ID of section 5
-    const windowHeight = window.innerHeight;
-    const sectionBottom = section5.getBoundingClientRect().bottom;
 
-    // Check if section 5 is in view and its bottom is at or below the bottom of the viewport
-    if (sectionBottom <= windowHeight) {
-        // Disable further scrolling beyond section 5
-		window.scrollTo({
-            top: section5.offsetTop,
-            behavior: 'smooth' // Smooth scrolling
-        });
-    }
-};
 
 
 const scrollContainer = document.querySelector('[data-scroller]')
@@ -173,3 +160,4 @@ const lenis = new Lenis({
   }
 
   requestAnimationFrame(raf);
+

@@ -15,7 +15,7 @@ let score = {
 let questions = [];
 
 // Fetch the CSV file containing the questions
-fetch("static/questions.csv")
+fetch("/Sidharth/scrollable page/dist/CSV Pages/questions.csv")
   .then((response) => response.text())
   .then((csv) => {
     loadQuestionsFromCSV(csv);
@@ -44,7 +44,7 @@ function createQuestion(question, index) {
   questionDiv.id = `question-4-${index}`; // Add unique ID to each question container
   questionDiv.innerHTML = `
     <p>${question.value}</p>
-    <div class="options">
+    <div class="options-4">
       <button class="option-btn-4" data-value="1">Strongly Disagree</button> <br/>
       <button class="option-btn-4" data-value="2">Disagree</button><br/>
       <button class="option-btn-4" data-value="3">Neutral</button><br/>
@@ -91,7 +91,7 @@ function createQuestion(question, index) {
     });
   });
 
-  const selectedOption = document.querySelector(".options-4 .selected-4");
+  const selectedOption = document.querySelector(".options-4 .selected");
   if (selectedOption) {
     optionButtons.forEach((button) => {
       if (
@@ -158,7 +158,7 @@ prevButton.addEventListener("click", () => {
       ((currentQuestionIndex + 1) / questions.length) * 100
     }%`;
 
-    const selectedOption = document.querySelector(".options-4 .selected");
+    const selectedOption = document.querySelector(".options-4.selected");
     if (selectedOption) {
       const value = parseInt(selectedOption.getAttribute("data-value"));
       score[questions[currentQuestionIndex].category] -= value; // Subtract the selected option's value from the score
@@ -168,7 +168,7 @@ prevButton.addEventListener("click", () => {
 
 nextButton.addEventListener("click", () => {
   const selectedOption =
-    document.querySelector(".options .selected") ||
+    document.querySelector(".options-4 .selected") ||
     document.getElementById(`answer-4-${currentQuestionIndex}`);
   if (selectedOption) {
     const value = parseInt(selectedOption.getAttribute("data-value"));
