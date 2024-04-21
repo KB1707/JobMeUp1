@@ -307,6 +307,10 @@ def elementary_school_teacher():
 def speech_pathologist():
     return render_template('speech-pathologist.html')
 
+@app.route('/education.html')
+def education():
+    return render_template('education.html')
+
 
 
 
@@ -484,6 +488,10 @@ def wildlife_conservationist():
     return render_template('wildlife-conservationist.html')
 
 
+@app.route('/design-and-creative-arts.html')
+def design():
+    return render_template('design-and-creative-arts.html')
+
 
 
 @app.route('/job_posting')
@@ -511,6 +519,33 @@ def logout():
     session.pop('login_email',None)
     return redirect('/login')
 
+@app.route('/healthcare-and-medical.html')
+def health_care_medical():
+    return render_template('healthcare-and-medical.html')
+
+@app.route('/science-and-research.html')
+def secienceeee():
+    return render_template('science-and-research.html')
+
+@app.route('/engineering-and-technology.html')
+def engineeringggggg():
+    return render_template('engineering-and-technology.html')
+
+
+@app.route('/business-and-finance.html')
+def business():
+    return render_template('business-and-finance.html')
+
+@app.route('/law-and-public-service.html')
+def laww():
+    return render_template('law-and-public-service.html')
+
+
+@app.route('/media-and-communication.html')
+def meediaa():
+    return render_template('media-and-communication.html')
+
+
 
 model = pickle.load(open('model.pkl', 'rb'))
 
@@ -527,23 +562,23 @@ def predict():
     output = round(prediction[0], 9)
 
     if output==0:
-        return render_template('healthcare-and-medical.html')
+        return redirect('/healthcare-and-medical.html')
     elif output==1:
-         return render_template('science-and-research.html')
+         return redirect('/science-and-research.html')
     elif output==2:
-         return render_template('engineering-and-technology.html')
+         return redirect('/engineering-and-technology.html')
     elif output==3:
-         return render_template('design-and-creative-arts.html')
+         return redirect('/design-and-creative-arts.html')
     elif output==4:
-         return render_template('education.html')
+         return redirect('/education.html')
     elif output==5:
-         return render_template('business-and-finance.html')
+         return redirect('/business-and-finance.html')
     elif output==6:
-         return render_template('law-and-public-service.html')
+         return redirect('/law-and-public-service.html')
     elif output==7:
-         return render_template('media-and-communication.html')
+         return redirect('/media-and-communication.html')
     else:
-        return render_template('webrtc.html')
+        return redirect('/webrtc.html')
 
 
 
