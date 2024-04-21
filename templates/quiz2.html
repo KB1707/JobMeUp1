@@ -83,7 +83,7 @@
           </li>
           <li>
             <a href="#section_9" class="nav__link" data-link
-              ><span>predict</span></a
+              ><span>Predict</span></a
             >
           </li>
         </ul>
@@ -264,6 +264,33 @@
     
     <script src="https://unpkg.com/zdog@1/dist/zdog.dist.js"></script>
         <script src="{{ url_for('static', filename='bear.js') }}"></script>
+        
+         <script>
+      const target = document.getElementById("typed-text"); /* Get the text element */
+      const text = target.textContent; /* Extract the text to be typed */
+  
+      let index = 0;
+  
+      function typeText() {
+        if (index < text.length) {
+          const char = text.charAt(index); /* Get the current character */
+  
+          if (char === "\n") { /* Handle line breaks */
+            target.innerHTML += "<br/>";
+          } else {
+            target.textContent += char; /* Add character to the content */
+          }
+  
+          index++;
+          setTimeout(typeText, 25); /* Typing speed */
+        }
+      }
+  
+      target.textContent = ""; /* Clear initial content */
+      typeText(); /* Start the typing animation */
+    </script>
+
+        
 
   </body>
 </html>
