@@ -93,7 +93,7 @@ def landing_page3():
 
 @app.route("/careers")
 def careers():
-    return render_template('career.html')
+    return render_template('main-sunburst.html')
 
 @app.route('/nurse')
 def nurse():
