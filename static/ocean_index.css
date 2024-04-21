@@ -52,11 +52,11 @@ body {
   transition: all 0.3s ease; /* Add a smooth transition for hover effect */
 }
 
-.option-btn-4 button:hover {
+ button:hover {
   font-weight: bold; /* Bolden the text on hover */
 }
 
-.option-btn-4 .selected {
+.selected {
   background-color: #3D1F3A; /* Highlight the selected option */
   color: #fff; /* Change text color to white */
 }
