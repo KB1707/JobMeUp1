@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       question: " Which of the boxes comes next in the sequence?",
-      image: "/Sidharth/scrollable page/dist/Spatial images/spatial_7.png",
+      image: "satic/spatial_7.png",
       options: ["A", "B", "C", "D", "E"],
       answer: "A",
     },
