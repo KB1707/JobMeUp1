@@ -579,7 +579,10 @@ def predict():
          return redirect('/media-and-communication.html')
     else:
         return redirect('/webrtc.html')
-
+    
+@app.route('/communication')
+def payment_form():
+    return render_template('communication.html')
 
 
 @app.route('/payment_form')
