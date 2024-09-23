@@ -61,7 +61,8 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     height: 90vh;
     width: 1400px;
-    margin:0 auto;
+    margin:auto;
+    margin-top:1.5rem;
 }
 
 .video-container{
@@ -91,7 +92,7 @@ h1 {
 
 #stream-controls{
     display: none;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top:0.5em;
 }
 
@@ -121,7 +122,23 @@ h1 {
   }
 
   button{
-    background-color: TRANSPARENT;
+    background-color: cadetblue;
+    border-radius: 50px;
+    box-sizing: border-box;
+    /* left: 50%; */
+    color: #0b0b0b;
+    padding: 15px 17px;
+    border:black;
+    /* position: fixed; */
+    text-align: center;
+    border: none;
+    /* top: 50%; */
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+
+#join{
+  background-color: TRANSPARENT;
     border-radius: 50px;
     box-sizing: border-box;
     left: 50%;
@@ -136,6 +153,7 @@ h1 {
     font-size: 16px;
     margin: 2px;
 }
+
   
 
   .skills .skills-flex-container .box {
@@ -195,6 +213,7 @@ h1 {
   .skills .skills-flex-container .box .selected {
     border: 20px solid rgb(255, 243, 243);
 }
+
 .box {
   cursor: pointer;
   background-color: #fff;
