@@ -1,6 +1,11 @@
 # Exclude the virtual environment folder
 .venv/
+<<<<<<< HEAD
+myvenv
+
+=======
 venv
+>>>>>>> 474424188bd7dec0b5e1207d23e78ed623bdc680
 # Ignore Python compiled files
 *.pyc
 __pycache__/
