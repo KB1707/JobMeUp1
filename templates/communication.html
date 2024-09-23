@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Sharing Platform</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='communication.css') }}">
-    <title>Question Submission</title>
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h1>Submit Questions</h1>
-    <form method="POST" action="/submit">
-        <textarea name="question" required placeholder="Enter your question here..." rows="4"></textarea>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Submit Your Important Questions</h1>
+        <form action="/submit_question" method="post">
+            <label for="question">Enter Question:</label><br>
+            <textarea id="question" name="question" rows="4" required></textarea><br><br>
+            <button type="submit">Submit</button>
+        </form>
 
-    <h2>Questions</h2>
-    <div id="questions">
-        {% for question in questions %}
-            <div class="question">
-                <p>{{ question[1] }}</p>
-                <button onclick="location.href='/like/{{ question[0] }}'">👍 {{ question[2] }}</button>
-                <button onclick="location.href='/dislike/{{ question[0] }}'">👎 {{ question[3] }}</button>
-            </div>
-        {% endfor %}
+        <h2>Questions Submitted:</h2>
+        <div id="questions-container">
+            <!-- Questions and Replies will be dynamically displayed here -->
+        </div>
     </div>
-
-    <script src="{{ url_for('static', filename='js/communication.js') }}"></script>
+    <script src="{{ url_for('static', filename='communication.js') }}"></script>
 </body>
 </html>

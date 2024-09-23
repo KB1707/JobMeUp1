@@ -95,3 +95,17 @@ button:hover {
 .question button:hover {
     opacity: 0.8;
 }
+
+i.fa-thumbs-up, i.fa-thumbs-down {
+    cursor: pointer;
+    margin-right: 10px;
+    color: #888;
+}
+
+i.fa-thumbs-up:hover {
+    color: green;
+}
+
+i.fa-thumbs-down:hover {
+    color: red;
+}
