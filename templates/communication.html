@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='communication.css') }}">
+    <title>Question Submission</title>
+</head>
+<body>
+    <h1>Submit Questions</h1>
+    <form method="POST" action="/submit">
+        <textarea name="question" required placeholder="Enter your question here..." rows="4"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Questions</h2>
+    <div id="questions">
+        {% for question in questions %}
+            <div class="question">
+                <p>{{ question[1] }}</p>
+                <button onclick="location.href='/like/{{ question[0] }}'">👍 {{ question[2] }}</button>
+                <button onclick="location.href='/dislike/{{ question[0] }}'">👎 {{ question[3] }}</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/communication.js') }}"></script>
+</body>
+</html>
