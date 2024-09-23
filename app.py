@@ -5,6 +5,8 @@ import bcrypt
 import numpy as np
 import pickle
 from datetime import datetime
+from mailjet_rest import Client
+
 
 app = Flask(__name__)
 
@@ -580,24 +582,26 @@ def predict():
     else:
         return redirect('/webrtc.html')
     
-@app.route('/communication')
-def payment_form():
-    return render_template('communication.html')
+# @app.route('/communication')
+# def payment_form():
+#     return render_template('communication.html')
 
 
 @app.route('/payment_form')
 def payment_form():
     return render_template('form.html')
 
+mailjet = Client(auth=('51e9cd9c523e12637bef00832c5f00ab', 'b2cd0d4bc0f7e8f3debe72f25ac50a9d'), version='v3.1')
+
 @app.route('/pay', methods=["GET", "POST"])
 def pay():
-    emaill=request.form.get("emaill")
+    emaill = request.form.get("emaill")
     session['emaill'] = emaill
     if request.form.get("amount") != "":
-        amount=request.form.get("amt")
+        amount = request.form.get("amt")
         data = { "amount": amount, "currency": "INR", "receipt": "order_rcptid_11" }
         payment = client.order.create(data=data)
-        pdata=[amount, payment["id"]]
+        pdata = [amount, payment["id"]]
 
         return render_template("payment.html", pdata=pdata)
     return redirect("/2")
@@ -605,23 +609,68 @@ def pay():
 @app.route('/success', methods=["POST"])
 def success():
     emaill = session.get('emaill') 
-    pid=request.form.get("razorpay_payment_id")
-    ordid=request.form.get("razorpay_order_id")
-    sign=request.form.get("razorpay_signature")
+    pid = request.form.get("razorpay_payment_id")
+    ordid = request.form.get("razorpay_order_id")
+    sign = request.form.get("razorpay_signature")
     print(f"The payment id : {pid}, order id : {ordid} and signature : {sign}")
-    params={
-    'razorpay_order_id': ordid,
-    'razorpay_payment_id': pid,
-    'razorpay_signature': sign
+    
+    params = {
+        'razorpay_order_id': ordid,
+        'razorpay_payment_id': pid,
+        'razorpay_signature': sign
     }
-    final=client.utility.verify_payment_signature(params)
+    
+    final = client.utility.verify_payment_signature(params)
+    
     if final == True:
         finalans = User.query.filter_by(email=emaill).first()
         if finalans:
             finalans.payment = True  # Set payment column to True
             db.session.commit()  # Commit the changes to the database
+
+            # Prepare and send the email
+            send_payment_email(emaill, pid, ordid)
+
         return redirect("/3", code=301)
+    
     return "Something Went Wrong Please Try Again"
+
+def send_payment_email(email, payment_id, order_id):
+    subject = "Payment Successful"
+    text = f"""
+    Your payment has been successfully processed!
+    
+    Payment ID: {payment_id}
+    Order ID: {order_id}
+    
+    Thank you for your payment!
+    """
+    
+    # Create email payload
+    payload = {
+        'Messages': [
+            {
+                'From': {
+                    'Email': 'sidharthgrover29@gmail.com',  # Replace with your sender email
+                    'Name': 'Sidharth Grover'  # Replace with your name
+                },
+                'To': [
+                    {
+                        'Email': email,
+                        'Name': 'Recipient Name'  # Optional
+                    }
+                ],
+                'Subject': subject,
+                'TextPart': text
+            }
+        ]
+    }
+    
+    # Send email
+    result = mailjet.send.create(data=payload)
+    if result.status_code != 200:
+        print(f"Failed to send email: {result.json()}")
+
 
 
 
