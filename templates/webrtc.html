@@ -5,43 +5,39 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Job Me Up Streams</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link  type='text/css' media='screen' rel="stylesheet" href="{{ url_for('static', filename='webrtc.css') }}" >
-
+    <link type='text/css' media='screen' rel="stylesheet" href="{{ url_for('static', filename='webrtc.css') }}">
 </head>
 <body>
 
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
-    
-      
-    <button id="join">
-        <!-- <div class="content"> -->
-            <section class="skills">
-            <div class="skills-flex-container">
-                <div class="box">
-        <h1>Join Stream</h1>
-    </div>
-      <!-- </div> -->
+
+    <div id="meeting-controls">
+        <button id="new-meeting">New Meeting</button>
+        <div id="join-existing-meeting">
+            <input type="text" id="meeting-code-input" placeholder="Enter meeting code">
+            <button id="join-meeting">Join Meeting</button>
         </div>
-        </section>
-    </button>
+    </div>
 
     <div id="stream-wrapper">
         <div id="video"></div>
 
-        <div id="stream-controls">
+        <div id="stream-controls" style="display:none;">
             <button id="leave">Leave Stream</button>
             <button id="mic">Mic On</button>
             <button id="camera">Camera on</button>
+        </div>
+
+        <div id="meeting-code-display" style="display:none;">
+            <h2>Your Meeting Code: <span id="meeting-code"></span></h2>
         </div>
     </div>
 
 </body>
 
 <script src="{{ url_for('static', filename='AgoraRTC_N-4.20.2.js') }}"></script>
-
 <script src="{{ url_for('static', filename='webrtc.js') }}"></script>
-
 
 </html>
