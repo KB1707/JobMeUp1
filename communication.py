@@ -3,11 +3,10 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Initialize the database
 def init_db():
     conn = sqlite3.connect('questions.db')
     cursor = conn.cursor()
-    # Table for questions
+    #questions table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS questions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,7 +15,7 @@ def init_db():
             dislikes INTEGER DEFAULT 0
         )
     ''')
-    # Table for replies
+    #replies table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS replies (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,17 +27,20 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Initialize the database on app startup
 init_db()
 
 @app.route('/')
 def index():
     return render_template('communication.html')
 
-# Submit a question
+# question validation
 @app.route('/submit_question', methods=['POST'])
 def submit_question():
-    question = request.form['question']
+    question = request.form['question'].strip()
+    
+    if len(question) < 5:
+        return "Invalid question. It must contain at least 5 characters.", 400
+    
     conn = sqlite3.connect('questions.db')
     cursor = conn.cursor()
     cursor.execute('INSERT INTO questions (question) VALUES (?)', (question,))
@@ -46,10 +48,13 @@ def submit_question():
     conn.close()
     return redirect(url_for('index'))
 
-# Submit a reply
+# reply validation
 @app.route('/submit_reply/<int:question_id>', methods=['POST'])
 def submit_reply(question_id):
-    reply = request.form['reply']
+    reply = request.form['reply'].trim()
+    if len(reply) < 3:
+        return "Invalid reply. It must contain at least 3 characters.", 400
+
     conn = sqlite3.connect('questions.db')
     cursor = conn.cursor()
     cursor.execute('INSERT INTO replies (question_id, reply) VALUES (?, ?)', (question_id, reply))
@@ -70,7 +75,7 @@ def vote(question_id, action):
     conn.close()
     return 'Vote submitted!'
 
-# Fetch questions with their replies
+# fetch question with reply
 @app.route('/get_questions_with_replies', methods=['GET'])
 def get_questions_with_replies():
     conn = sqlite3.connect('questions.db')
@@ -87,7 +92,7 @@ def get_questions_with_replies():
     conn.close()
     return jsonify(result)
 
-# Delete a question (developer only)
+# Delete a question
 @app.route('/delete_question/<int:id>', methods=['POST'])
 def delete_question(id):
     conn = sqlite3.connect('questions.db')
