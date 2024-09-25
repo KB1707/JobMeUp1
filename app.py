@@ -5,6 +5,9 @@ import bcrypt
 import numpy as np
 import pickle
 from datetime import datetime
+from mailjet_rest import Client
+import requests
+
 
 app = Flask(__name__)
 
@@ -550,51 +553,91 @@ def meediaa():
 model = pickle.load(open('model.pkl', 'rb'))
 
 
-@app.route('/predict',methods=['POST'])
+@app.route('/submit', methods=['POST'])
+def submit():
+    hcaptcha_response = request.form['h-captcha-response']
+    
+    secret_key = "ES_5141b751dc3d4680a278485ff4a813b3"  # Replace with your actual secret key
+    verify_url = "https://hcaptcha.com/siteverify"
+
+    payload = {
+        'secret': secret_key,
+        'response': hcaptcha_response
+    }
+
+    # Send the POST request to verify the captcha
+    response = requests.post(verify_url, data=payload)
+    verification_result = response.json()
+
+    if verification_result['success']:
+        # Store form values in session
+        session['form_data'] = request.form.to_dict() 
+        del session['form_data']['g-recaptcha-response']
+        del session['form_data']['h-captcha-response'] # Save all form data in the session
+        print(session['form_data'])
+        return redirect(url_for('predict'))
+    else:
+        return "hCaptcha validation failed!", 400
+
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    # Retrieve form data from session
+    form_data = session.get('form_data', {})
+    if not form_data:
+        return "No form data found!", 400
 
-    output = round(prediction[0], 9)
+    try:
+        int_features = [float(x) for x in form_data.values()]
+        final_features = [np.array(int_features)]
+        prediction = model.predict(final_features)
 
-    if output==0:
-        return redirect('/healthcare-and-medical.html')
-    elif output==1:
-         return redirect('/science-and-research.html')
-    elif output==2:
-         return redirect('/engineering-and-technology.html')
-    elif output==3:
-         return redirect('/design-and-creative-arts.html')
-    elif output==4:
-         return redirect('/education.html')
-    elif output==5:
-         return redirect('/business-and-finance.html')
-    elif output==6:
-         return redirect('/law-and-public-service.html')
-    elif output==7:
-         return redirect('/media-and-communication.html')
-    else:
-        return redirect('/webrtc.html')
+        output = round(prediction[0], 9)
 
+        # Redirect based on prediction output
+        if output == 0:
+            return redirect('/healthcare-and-medical.html')
+        elif output == 1:
+            return redirect('/science-and-research.html')
+        elif output == 2:
+            return redirect('/engineering-and-technology.html')
+        elif output == 3:
+            return redirect('/design-and-creative-arts.html')
+        elif output == 4:
+            return redirect('/education.html')
+        elif output == 5:
+            return redirect('/business-and-finance.html')
+        elif output == 6:
+            return redirect('/law-and-public-service.html')
+        elif output == 7:
+            return redirect('/media-and-communication.html')
+        else:
+            return redirect('/webrtc.html')
+    except ValueError:
+        return "Error processing input data!", 400
+    
+# @app.route('/communication')
+# def payment_form():
+#     return render_template('communication.html')
 
 
 @app.route('/payment_form')
 def payment_form():
     return render_template('form.html')
 
+mailjet = Client(auth=('51e9cd9c523e12637bef00832c5f00ab', 'b2cd0d4bc0f7e8f3debe72f25ac50a9d'), version='v3.1')
+
 @app.route('/pay', methods=["GET", "POST"])
 def pay():
-    emaill=request.form.get("emaill")
+    emaill = request.form.get("emaill")
     session['emaill'] = emaill
     if request.form.get("amount") != "":
-        amount=request.form.get("amt")
+        amount = request.form.get("amt")
         data = { "amount": amount, "currency": "INR", "receipt": "order_rcptid_11" }
         payment = client.order.create(data=data)
-        pdata=[amount, payment["id"]]
+        pdata = [amount, payment["id"]]
 
         return render_template("payment.html", pdata=pdata)
     return redirect("/2")
@@ -602,23 +645,68 @@ def pay():
 @app.route('/success', methods=["POST"])
 def success():
     emaill = session.get('emaill') 
-    pid=request.form.get("razorpay_payment_id")
-    ordid=request.form.get("razorpay_order_id")
-    sign=request.form.get("razorpay_signature")
+    pid = request.form.get("razorpay_payment_id")
+    ordid = request.form.get("razorpay_order_id")
+    sign = request.form.get("razorpay_signature")
     print(f"The payment id : {pid}, order id : {ordid} and signature : {sign}")
-    params={
-    'razorpay_order_id': ordid,
-    'razorpay_payment_id': pid,
-    'razorpay_signature': sign
+    
+    params = {
+        'razorpay_order_id': ordid,
+        'razorpay_payment_id': pid,
+        'razorpay_signature': sign
     }
-    final=client.utility.verify_payment_signature(params)
+    
+    final = client.utility.verify_payment_signature(params)
+    
     if final == True:
         finalans = User.query.filter_by(email=emaill).first()
         if finalans:
             finalans.payment = True  # Set payment column to True
             db.session.commit()  # Commit the changes to the database
+
+            # Prepare and send the email
+            send_payment_email(emaill, pid, ordid)
+
         return redirect("/3", code=301)
+    
     return "Something Went Wrong Please Try Again"
+
+def send_payment_email(email, payment_id, order_id):
+    subject = "Payment Successful"
+    text = f"""
+    Your payment has been successfully processed!
+    
+    Payment ID: {payment_id}
+    Order ID: {order_id}
+    
+    Thank you for your payment!
+    """
+    
+    # Create email payload
+    payload = {
+        'Messages': [
+            {
+                'From': {
+                    'Email': 'sidharthgrover29@gmail.com',  # Replace with your sender email
+                    'Name': 'Sidharth Grover'  # Replace with your name
+                },
+                'To': [
+                    {
+                        'Email': email,
+                        'Name': 'Recipient Name'  # Optional
+                    }
+                ],
+                'Subject': subject,
+                'TextPart': text
+            }
+        ]
+    }
+    
+    # Send email
+    result = mailjet.send.create(data=payload)
+    if result.status_code != 200:
+        print(f"Failed to send email: {result.json()}")
+
 
 
 

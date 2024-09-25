@@ -312,3 +312,107 @@ ul{
   list-style-type: none;
 }
 
+
+
+
+
+
+
+.quiz-container-6 {
+  /* max-width: 500px;
+  max-height: 800px; */
+  width: 60rem;
+  height: 35rem;
+  margin: 50px auto;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(37 38 41);
+  font-size: 20px;
+  font-family: Helvetica;
+  position: relative;
+  margin-left: 2rem;
+  animation: animateleft 1s;
+}
+.quiz-container-4 {
+  /* max-width: 500px;
+  max-height: 800px; */
+  width: 60rem;
+  height: 35rem;
+  margin: 50px auto;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(37 38 41);
+  font-size: 20px;
+  font-family: Helvetica;
+  position: relative;
+  margin-left: 2rem;
+  animation: animateleft 1s;
+}
+.quiz-container-3 {
+  /* max-width: 500px;
+  max-height: 800px; */
+  width: 60rem;
+  height: 35rem;
+  margin: 50px auto;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(37 38 41);
+  font-size: 20px;
+  font-family: Helvetica;
+  position: relative;
+  margin-left: 2rem;
+  animation: animateleft 1s;
+}
+.quiz-container-2 {
+  /* max-width: 500px;
+  max-height: 800px; */
+  width: 60rem;
+  height: 35rem;
+  margin: 50px auto;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(37 38 41);
+  font-size: 20px;
+  font-family: Helvetica;
+  position: relative;
+  margin-left: 2rem;
+  animation: animateleft 1s;
+}
+.quiz-container-7{
+  /* max-width: 500px;
+  max-height: 800px; */
+  width: 60rem;
+  height: 35rem;
+  margin: 50px auto;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(37 38 41);
+  font-size: 20px;
+  font-family: Helvetica;
+  position: relative;
+  margin-left: 2rem;
+  animation: animateleft 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
