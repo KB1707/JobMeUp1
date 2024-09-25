@@ -6,6 +6,7 @@ import numpy as np
 import pickle
 from datetime import datetime
 from mailjet_rest import Client
+import requests
 
 
 app = Flask(__name__)
@@ -552,35 +553,70 @@ def meediaa():
 model = pickle.load(open('model.pkl', 'rb'))
 
 
-@app.route('/predict',methods=['POST'])
+@app.route('/submit', methods=['POST'])
+def submit():
+    hcaptcha_response = request.form['h-captcha-response']
+    
+    secret_key = "ES_5141b751dc3d4680a278485ff4a813b3"  # Replace with your actual secret key
+    verify_url = "https://hcaptcha.com/siteverify"
+
+    payload = {
+        'secret': secret_key,
+        'response': hcaptcha_response
+    }
+
+    # Send the POST request to verify the captcha
+    response = requests.post(verify_url, data=payload)
+    verification_result = response.json()
+
+    if verification_result['success']:
+        # Store form values in session
+        session['form_data'] = request.form.to_dict() 
+        del session['form_data']['g-recaptcha-response']
+        del session['form_data']['h-captcha-response'] # Save all form data in the session
+        print(session['form_data'])
+        return redirect(url_for('predict'))
+    else:
+        return "hCaptcha validation failed!", 400
+
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    # Retrieve form data from session
+    form_data = session.get('form_data', {})
+    if not form_data:
+        return "No form data found!", 400
 
-    output = round(prediction[0], 9)
+    try:
+        int_features = [float(x) for x in form_data.values()]
+        final_features = [np.array(int_features)]
+        prediction = model.predict(final_features)
 
-    if output==0:
-        return redirect('/healthcare-and-medical.html')
-    elif output==1:
-         return redirect('/science-and-research.html')
-    elif output==2:
-         return redirect('/engineering-and-technology.html')
-    elif output==3:
-         return redirect('/design-and-creative-arts.html')
-    elif output==4:
-         return redirect('/education.html')
-    elif output==5:
-         return redirect('/business-and-finance.html')
-    elif output==6:
-         return redirect('/law-and-public-service.html')
-    elif output==7:
-         return redirect('/media-and-communication.html')
-    else:
-        return redirect('/webrtc.html')
+        output = round(prediction[0], 9)
+
+        # Redirect based on prediction output
+        if output == 0:
+            return redirect('/healthcare-and-medical.html')
+        elif output == 1:
+            return redirect('/science-and-research.html')
+        elif output == 2:
+            return redirect('/engineering-and-technology.html')
+        elif output == 3:
+            return redirect('/design-and-creative-arts.html')
+        elif output == 4:
+            return redirect('/education.html')
+        elif output == 5:
+            return redirect('/business-and-finance.html')
+        elif output == 6:
+            return redirect('/law-and-public-service.html')
+        elif output == 7:
+            return redirect('/media-and-communication.html')
+        else:
+            return redirect('/webrtc.html')
+    except ValueError:
+        return "Error processing input data!", 400
     
 # @app.route('/communication')
 # def payment_form():
