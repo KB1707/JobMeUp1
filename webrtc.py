@@ -3,13 +3,10 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-# Enable CORS for requests from your frontend
 CORS(app, origins=["http://127.0.0.1:5000"])
 
-# In-memory storage for meeting codes (this should be a database in production)
 meeting_codes = {}
 
-# API to create a new meeting and store the meeting code
 @app.route('/create_meeting', methods=['POST'])
 def create_meeting():
     code = request.json.get('code')
@@ -20,10 +17,9 @@ def create_meeting():
     if code in meeting_codes:
         return jsonify({"error": "Meeting code already exists"}), 409
     
-    meeting_codes[code] = True  # Store meeting code
+    meeting_codes[code] = True  
     return jsonify({"message": "Meeting created", "code": code}), 200
 
-# API to verify if a meeting code exists
 @app.route('/verify_meeting', methods=['POST'])
 def verify_meeting():
     code = request.json.get('code')
