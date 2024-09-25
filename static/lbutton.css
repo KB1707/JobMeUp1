@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900&display=swap");
+
+.change {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border-radius: 50%;
+}
+
+.change:after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #4287f5;
+  border-radius: 50%;
+}
+
+.lbutton {
+  cursor: pointer;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  width: 20.2%;
+  height: 34%;
+  transition: all 2s;
+  margin-top: 1%;
+  left: -8%;
+  /* min-height: 70px; */
+  user-select: none;
+  color: #4287f5;
+  border-radius: 0%;
+  z-index: 0;
+  padding: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid #4287f5;
+  transition: all 0.5s;
+}
+.lbutton:hover {
+  animation: colorize 0.5s ease-in-out forwards;
+}
+@keyframes colorize {
+  0% {
+    color: #4287f5;
+  }
+  25% {
+    color: #4287f5;
+  }
+  100% {
+    color: white;
+  }
+}
+.lbutton::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 1px;
+  background-color: #4287f5;
+  z-index: -1;
+  transition: all 0.5s;
+}
+.lbutton:hover::before {
+  width: 175px;
+  transition: 0.5s;
+}
+
+.lbuttons {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: all 0.5s;
+  gap: 20px 20px;
+  background-color: #F3F3F3;
+}
+
+.lbutton:nth-child(1) {
+  color: #eb8f34;
+  border: 2px solid #eb8f34;
+}
+.lbutton:nth-child(1)::before {
+  background-color: #eb8f34;
+}
+.lbutton:nth-child(1):hover {
+  animation: colorChange 0.5s ease-in-out forwards;
+}
+@keyframes colorChange {
+  0% {
+    color: #eb8f34;
+  }
+  25% {
+    color: #eb8f34;
+  }
+  100% {
+    color: white;
+  }
+}
