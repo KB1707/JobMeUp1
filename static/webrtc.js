@@ -1,15 +1,15 @@
 
 const APP_ID = "d24cad8c62a545e8a4442b7efec4c9df";
-const TOKEN = "007eJxTYDiW/eFvwbHqmp0H2jV+s6ddZZu/+IrIZBbHsOagv2dUJ2soMBgZWRiam5ubWZgZWZgYmKcmphgBhcwNUswTDQ1Mjc1///uU1hDIyCDcYczMyACBID4LQ25iZh4DAwCNMB+2";
+const TOKEN = "007eJxTYHApnJe3fkXw1AbdlFexwpseHt25b0Xgqz3PcqcZWiVrPrquwGBkZGFobm5uZmFmZGFiYJ6amGIEFDI3SDFPNDQwNTafG/QlrSGQkcGYTYWFkQECQXwWhtzEzDwGBgCIuR8k";
 const CHANNEL = "main";
 const client = AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' });
-
 let localTracks = [];
 let remoteUsers = {};
 let generatedCode = null;
 
 // Function to create a new meeting (API call to Flask backend)
 let createNewMeeting = async () => {
+    
     generatedCode = Math.random().toString(36).substring(2, 8);
 
     // API call to Flask backend to store the meeting code
@@ -107,6 +107,9 @@ let handleUserLeft = async (user) => {
 
 // Function to leave the meeting and remove the local stream
 let leaveAndRemoveLocalStream = async () => {
+    
+    window.location.href = '/3';
+
     for (let i = 0; i < localTracks.length; i++) {
         localTracks[i].stop();
         localTracks[i].close();
@@ -121,6 +124,7 @@ let leaveAndRemoveLocalStream = async () => {
     document.getElementById('stream-controls').style.display = 'none';
     document.getElementById('video').innerHTML = '';
     document.getElementById('meeting-controls').style.display = 'block';
+
 };
 
 // Function to toggle microphone on/off
@@ -148,6 +152,9 @@ let toggleCamera = async (e) => {
         e.target.style.backgroundColor = '#EE4B2B';
     }
 };
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Make sure the DOM is fully loaded before adding listeners

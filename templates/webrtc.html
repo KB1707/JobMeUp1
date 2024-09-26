@@ -10,41 +10,48 @@
 </head>
 <body>
 
-    <!-- Background elements for a cool effect (CSS-controlled) -->
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
 
-    <!-- Meeting controls for creating or joining meetings -->
     <div id="meeting-controls">
-        <button id="new-meeting">New Meeting</button>
+
+        <div id="host_meeting">
+            <h1>Want to host a meeting ? </h1>
+            <div id="host_meeting_inside">
+                <button id="new-meeting">New Meeting</button>
+            </div>
+        </div>
+
         <div id="join-existing-meeting">
+            <h1>Join Existing Meeting ? </h1>
             <input type="text" id="meeting-code-input" placeholder="Enter meeting code">
             <button id="join-meeting">Join Meeting</button>
         </div>
+
     </div>
 
-    <!-- Stream display area -->
     <div id="stream-wrapper">
-        <!-- Video container for streams -->
-        <div id="video"></div>
+        <div id="video">
+        </div>
 
-        <!-- Stream controls for toggling mic, camera, and leaving the stream -->
+        <div id="controls">
+        <div id="meeting-code-display" style="display:none;">
+            <h2>Your Meeting Code: <span id="meeting-code"></span></h2>
+        </div>
+
         <div id="stream-controls" style="display:none;">
             <button id="leave">Leave Stream</button>
             <button id="mic">Mic On</button>
             <button id="camera">Camera On</button>
-        </div>
+            <button id="screen-share">Share Screen</button>
 
-        <!-- Display meeting code when a new meeting is created -->
-        <div id="meeting-code-display" style="display:none;">
-            <h2>Your Meeting Code: <span id="meeting-code"></span></h2>
         </div>
+    </div>
     </div>
 
 </body>
 
-<!-- Agora and WebRTC script imports -->
 <script src="{{ url_for('static', filename='AgoraRTC_N-4.20.2.js') }}"></script>
 <script src="{{ url_for('static', filename='webrtc.js') }}"></script>
 
