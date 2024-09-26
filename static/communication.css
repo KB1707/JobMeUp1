@@ -1,4 +1,4 @@
-/* Reset some default styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -85,11 +85,11 @@ button:hover {
 
 .question button {
     margin-right: 10px;
-    background-color: #e67e22; /* Like button color */
+    background-color: #e67e22; 
 }
 
 .question button:last-child {
-    background-color: #e74c3c; /* Dislike button color */
+    background-color: #e74c3c; 
 }
 
 .question button:hover {
