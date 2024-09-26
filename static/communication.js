@@ -1,16 +1,16 @@
-// Fetch and display questions with replies
+
 function loadQuestions() {
     fetch('/get_questions_with_replies')
     .then(response => response.json())
     .then(data => {
         let questionsContainer = document.getElementById('questions-container');
-        questionsContainer.innerHTML = '';  // Clear previous content
+        questionsContainer.innerHTML = '';  
 
         data.forEach(item => {
             let question = item.question;
             let replies = item.replies;
 
-            // Display the question
+            
             let questionDiv = document.createElement('div');
             questionDiv.classList.add('question');
             questionDiv.innerHTML = `
@@ -24,7 +24,7 @@ function loadQuestions() {
                 <div id="replies-${question[0]}"></div>
             `;
             
-            // Display replies
+            
             let repliesDiv = questionDiv.querySelector(`#replies-${question[0]}`);
             replies.forEach(reply => {
                 let replyDiv = document.createElement('div');
@@ -38,7 +38,7 @@ function loadQuestions() {
     });
 }
 
-// Submit a reply
+
 function submitReply(questionId) {
     let replyText = prompt('Enter your reply:');
     if (replyText) {
@@ -52,12 +52,12 @@ function submitReply(questionId) {
         .then(response => response.text())
         .then(data => {
             alert(data);
-            loadQuestions();  // Reload questions and replies
+            loadQuestions();  
         });
     }
 }
 
-// Like or dislike a question
+
 function vote(questionId, action) {
     fetch(`/vote/${questionId}/${action}`, {
         method: 'POST'
@@ -65,11 +65,11 @@ function vote(questionId, action) {
     .then(response => response.text())
     .then(data => {
         alert(data);
-        loadQuestions();  // Reload questions and votes
+        loadQuestions();  
     });
 }
 
-// Delete a question (developer only)
+
 function deleteQuestion(questionId) {
     if (confirm('Are you sure you want to delete this question?')) {
         fetch(`/delete_question/${questionId}`, {
@@ -78,10 +78,10 @@ function deleteQuestion(questionId) {
         .then(response => response.text())
         .then(data => {
             alert(data);
-            loadQuestions();  // Reload questions after deletion
+            loadQuestions();  
         });
     }
 }
 
-// Initial load of questions
+
 loadQuestions();

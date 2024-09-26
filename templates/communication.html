@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question Sharing Platform</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='communication.css') }}">
-    <!-- Add Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -22,19 +21,19 @@
             <!-- Questions and Replies will be dynamically displayed here -->
         </div>
     </div>
-    
+   
     <script src="{{ url_for('static', filename='communication.js') }}"></script>
     <script>
-        // JavaScript form validation
+        
         function validateForm() {
             var question = document.getElementById("question").value.trim();
 
             if (question.length < 5) {
                 alert("Please enter a valid question with at least 5 characters.");
-                return false; // Prevent form submission
+                return false; 
             }
 
-            return true; // Allow form submission
+            return true; 
         }
     </script>
 </body>
