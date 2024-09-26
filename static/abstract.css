@@ -207,3 +207,6 @@ button {
   opacity: 1;
   transition: 0s;
 }
+#submit-btn-7 {
+  float: inline-start;
+}
