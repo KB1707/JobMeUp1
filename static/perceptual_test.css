@@ -41,13 +41,13 @@ body {
 .options-8 button {
   margin: 0 0 2em 0;
   width: 15rem;
-  height:1.9rem;
+  height: 1.9rem;
   background-color: transparent;
   border: 1px solid #836255;
   color: #000;
   margin-left: 32rem;
   position: relative;
-  top: -250px;
+  top: -375px;
   font-size: 18px;
   border-radius: 5px;
   font-family: Helvetica;
@@ -60,7 +60,7 @@ body {
 }
 
 .options-8 .selected {
-  background-color: #3D1F3A; /* Highlight the selected option */
+  background-color: #3d1f3a; /* Highlight the selected option */
   color: #fff; /* Change text color to white */
 }
 
@@ -75,7 +75,7 @@ body {
 .progress-8 {
   width: 0;
   height: 100%;
-  background-color: #3D1F3A;
+  background-color: #3d1f3a;
   border-radius: 10px;
 }
 
@@ -104,6 +104,9 @@ body {
 .btn-container-8 {
   text-align: center;
   margin-top: -24%;
+  /* position: relative;
+  top: -50%;
+  left: 35%; */
 }
 
 button {
@@ -126,17 +129,16 @@ button {
 }
 
 #start-btn-8 {
-
   position: relative;
-  color: #9575CD;
+  color: #9575cd;
   text-decoration: none;
   margin-top: 23rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: #D1C4E9 1px 0 10px;
+  text-shadow: #d1c4e9 1px 0 10px;
   height: 175px;
   width: 175px;
-  border: solid 1px #D1C4E9;
+  border: solid 1px #d1c4e9;
   border-radius: 175px;
   display: flex;
   justify-content: center;
@@ -145,7 +147,7 @@ button {
 }
 
 #start-btn-8:before {
-  content: '';
+  content: "";
   position: absolute;
   background: rgb(37 38 41);
   color: white;
@@ -153,31 +155,28 @@ button {
   height: 0;
   z-index: -1;
   border-radius: 175px;
-  box-shadow: 0px 0px 24px 1px rgba(224,199,224,0.2);
-  transition: all 900ms cubic-bezier(1.000, -0.195, 0.000, 1.330);
-  transition-timing-function: cubic-bezier(1.000, -0.195, 0.000, 1.330);
+  box-shadow: 0px 0px 24px 1px rgba(224, 199, 224, 0.2);
+  transition: all 900ms cubic-bezier(1, -0.195, 0, 1.33);
+  transition-timing-function: cubic-bezier(1, -0.195, 0, 1.33);
 }
 
 #start-btn-8:hover:before {
   width: 85%;
   height: 85%;
-  z-index:0 ;
+  z-index: 0;
   color: white;
 }
 
-#start-btn-8:before, #start-btn-8:focus:before {
+#start-btn-8:before,
+#start-btn-8:focus:before {
   width: 100%;
   height: 100%;
   color: white;
   /* z-index: 0; */
-  
 }
 
-
-
 #submit-btn-8 {
-  position: relative;
-  background-color: rgb(37 38 41);;
+  background-color: rgb(37 38 41);
   border: none;
   /* padding: 20px; */
   width: 125px;
@@ -188,13 +187,14 @@ button {
   text-decoration: none;
   overflow: hidden;
   position: relative;
-  top: -10rem;
+  top: 5rem;
+  left: 75%;
 }
 
-#submit-btn-8:hover{
- background:#fff;
- box-shadow:0px 2px 10px 5px #97B1BF;
- color:#000;
+#submit-btn-8:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 5px #97b1bf;
+  color: #000;
 }
 
 #submit-btn-8:after {
@@ -207,24 +207,33 @@ button {
   margin-left: -20px !important;
   margin-top: -120%;
   opacity: 0;
-  transition: all 0.8s
+  transition: all 0.8s;
 }
 
 #submit-btn-8:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;
-  transition: 0s
+  transition: 0s;
 }
 .quiz-container-8 img {
   display: block;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 50%;
   height: 40%;
   height: auto;
   max-width: 100%;
 }
-ul{
+ul {
   list-style-type: none;
 }
-
+.btn-container-8 .rbutton,
+.btn-container-8 .lbutton {
+  position: relative;
+  top: -50%;
+  left: 29%;
+}
+.options-8 {
+  margin-bottom: -40%;
+  position: relative;
+}
