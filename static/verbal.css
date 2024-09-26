@@ -40,7 +40,7 @@ body {
 .options-6 button {
   margin: 0 0 2em 0;
   width: 35rem;
-  height:3rem;
+  height: 3rem;
   background-color: transparent;
   border: 1px solid #836255;
   color: #000;
@@ -57,7 +57,7 @@ body {
 }
 
 .options-6 .selected {
-  background-color: #3D1F3A; /* Highlight the selected option */
+  background-color: #3d1f3a; /* Highlight the selected option */
   color: #fff; /* Change text color to white */
 }
 
@@ -72,11 +72,11 @@ body {
 .progress-6 {
   width: 0;
   height: 100%;
-  background-color: #3D1F3A;
+  background-color: #3d1f3a;
   border-radius: 10px;
 }
 
-.question-box-6{
+.question-box-6 {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
@@ -121,20 +121,17 @@ button {
   color: black;
 }
 
-
-
 #start-btn-6 {
-
   position: relative;
-  color: #9575CD;
+  color: #9575cd;
   text-decoration: none;
   margin-top: 10rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: #D1C4E9 1px 0 10px;
+  text-shadow: #d1c4e9 1px 0 10px;
   height: 175px;
   width: 175px;
-  border: solid 1px #D1C4E9;
+  border: solid 1px #d1c4e9;
   border-radius: 175px;
   display: flex;
   justify-content: center;
@@ -143,7 +140,7 @@ button {
 }
 
 #start-btn-6:before {
-  content: '';
+  content: "";
   position: absolute;
   background: rgb(37 38 41);
   color: white;
@@ -151,31 +148,29 @@ button {
   height: 0;
   z-index: -1;
   border-radius: 175px;
-  box-shadow: 0px 0px 24px 1px rgba(224,199,224,0.2);
-  transition: all 900ms cubic-bezier(1.000, -0.195, 0.000, 1.330);
-  transition-timing-function: cubic-bezier(1.000, -0.195, 0.000, 1.330);
+  box-shadow: 0px 0px 24px 1px rgba(224, 199, 224, 0.2);
+  transition: all 900ms cubic-bezier(1, -0.195, 0, 1.33);
+  transition-timing-function: cubic-bezier(1, -0.195, 0, 1.33);
 }
 
 #start-btn-6:hover:before {
   width: 85%;
   height: 85%;
-  z-index:0 ;
+  z-index: 0;
   color: white;
 }
 
-#start-btn-6:before, #start-btn-6:focus:before {
+#start-btn-6:before,
+#start-btn-6:focus:before {
   width: 100%;
   height: 100%;
   color: white;
   /* z-index: 0; */
-  
 }
-
-
 
 #submit-btn-6 {
   position: relative;
-  background-color: rgb(37 38 41);;
+  background-color: rgb(37 38 41);
   border: none;
   /* padding: 20px; */
   width: 125px;
@@ -187,10 +182,10 @@ button {
   overflow: hidden;
 }
 
-#submit-btn-6:hover{
- background:#fff;
- box-shadow:0px 2px 10px 5px #97B1BF;
- color:#000;
+#submit-btn-6:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 5px #97b1bf;
+  color: #000;
 }
 
 #submit-btn-6:after {
@@ -203,12 +198,15 @@ button {
   margin-left: -20px !important;
   margin-top: -120%;
   opacity: 0;
-  transition: all 0.8s
+  transition: all 0.8s;
 }
 
 #submit-btn-6:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;
-  transition: 0s
+  transition: 0s;
+}
+#submit-btn-6 {
+  float: inline-start;
 }
