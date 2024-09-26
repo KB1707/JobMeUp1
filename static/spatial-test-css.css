@@ -324,7 +324,23 @@ ul{
 }
 
 
-
+.options-5{
+  margin-top: -7%;
+}
+.btn-container-5 .rbutton{
+  left: 26%;
+}
+.btn-container-5 .lbutton{
+  left: 26%;
+}
+.options-5 button{
+  /* margin: 0 0 1.5em; */
+  margin: 0 0 1.5em 0;
+  margin-left: 32rem;
+}
+.btn-container-5{
+  margin-top: -25%;
+}
 
 
 

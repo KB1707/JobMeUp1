@@ -38,7 +38,7 @@ body {
   margin: 0 auto;
 }
 .options-3 button {
-  margin: 0 0 2em 0;
+  margin: 0 0 1.5em 0;
   width: 35rem;
   height:3rem;
   background-color: transparent;
@@ -216,3 +216,13 @@ button {
 .options-3{
   margin-top: 5%;
 }
+
+.question-3 {
+  font-size: 22px;
+  margin-top: -2%;
+}
+
+.btn-container-3 .lbutton{
+  margin-top: -1%;
+}
+
