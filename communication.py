@@ -6,7 +6,7 @@ app = Flask(__name__)
 def init_db():
     conn = sqlite3.connect('questions.db')
     cursor = conn.cursor()
-    #questions table
+   
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS questions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -15,7 +15,7 @@ def init_db():
             dislikes INTEGER DEFAULT 0
         )
     ''')
-    #replies table
+  
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS replies (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,7 +33,7 @@ init_db()
 def index():
     return render_template('communication.html')
 
-# question validation
+
 @app.route('/submit_question', methods=['POST'])
 def submit_question():
     question = request.form['question'].strip()
@@ -48,7 +48,7 @@ def submit_question():
     conn.close()
     return redirect(url_for('index'))
 
-# reply validation
+
 @app.route('/submit_reply/<int:question_id>', methods=['POST'])
 def submit_reply(question_id):
     reply = request.form['reply'].trim()
@@ -62,7 +62,6 @@ def submit_reply(question_id):
     conn.close()
     return 'Reply submitted successfully!'
 
-# Like or dislike a question
 @app.route('/vote/<int:question_id>/<action>', methods=['POST'])
 def vote(question_id, action):
     conn = sqlite3.connect('questions.db')
@@ -75,7 +74,7 @@ def vote(question_id, action):
     conn.close()
     return 'Vote submitted!'
 
-# fetch question with reply
+
 @app.route('/get_questions_with_replies', methods=['GET'])
 def get_questions_with_replies():
     conn = sqlite3.connect('questions.db')
@@ -92,7 +91,7 @@ def get_questions_with_replies():
     conn.close()
     return jsonify(result)
 
-# Delete a question
+
 @app.route('/delete_question/<int:id>', methods=['POST'])
 def delete_question(id):
     conn = sqlite3.connect('questions.db')
