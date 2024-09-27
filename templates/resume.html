@@ -16,10 +16,7 @@
     <div>
     <div class="nav">
         <button id="cmd" onclick="printpdf()" class="navbtn"><i class="fas fa-download"></i></button>
-        <!-- <form>
-            <input type="hidden" id="custinfo" name="custinfo">
-            <button class="navbtn"><i class="fas fa-save"></i></button>
-        </form> -->
+            <button class="navbtn" onclick="savepdf()"><i class="fas fa-save"></i></button>
         <button class="navbtn" href="/"><i class="fas fa-home"></i></button>
     </div>
 
@@ -98,7 +95,7 @@
                     <span class="title">PROFILE</span><br><br>
                     <div contenteditable="true">
                         <div class="profiletxt">Here u can write something about yourself that you want your interviewer to know. Try to keep it brief and do not include information which is
-                        already written in your resume.</div></div>
+                        already written in your resume but like a summary about it.</div></div>
                     <br><br><span class="title">EDUCATION</span><br><br>
                     <div>
                         <div id="education">
@@ -121,7 +118,7 @@
                         <div id="exp">
                             <div class="expblock">
                                 <span><i class="fas fa-chevron-circle-right"></i></span>
-                                <span class="exp-head titles-head" contenteditable="true"> Company Name</span> </span>
+                                <span class="exp-head titles-head" contenteditable="true"> Company Name | Role</span> </span>
                                 <div><span contenteditable="true" class="titles-desc">Description</span></div>
                             </div>
                         </div>
@@ -138,7 +135,8 @@
                         <div id="project">
                             <div class="problock">
                                 <span><i class="fas fa-chevron-circle-right"></i></span>
-                                <span class="project-head titles-head" contenteditable="true">Project Name</span>
+                                <span class="project-head titles-head" contenteditable="true">Project Name | Tech Stack Used
+                                </span>
                                 <div><span contenteditable="true" class="titles-desc">Description</span></div>
                             </div>
                         </div>
