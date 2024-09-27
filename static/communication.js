@@ -20,7 +20,6 @@ function loadQuestions() {
                 <i class="fas fa-thumbs-down" onclick="vote(${question[0]}, 'dislike')"></i> 
                 <span>${question[3]}</span>
                 <button onclick="submitReply(${question[0]})">Reply</button>
-                <button onclick="deleteQuestion(${question[0]})">Delete</button>
                 <div id="replies-${question[0]}"></div>
             `;
             
@@ -70,18 +69,7 @@ function vote(questionId, action) {
 }
 
 
-function deleteQuestion(questionId) {
-    if (confirm('Are you sure you want to delete this question?')) {
-        fetch(`/delete_question/${questionId}`, {
-            method: 'POST'
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert(data);
-            loadQuestions();  
-        });
-    }
-}
+
 
 
 loadQuestions();
