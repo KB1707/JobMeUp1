@@ -7,6 +7,8 @@ import pickle
 from datetime import datetime
 from mailjet_rest import Client
 import requests
+import sqlite3
+
 
 
 app = Flask(__name__)
@@ -102,335 +104,335 @@ def careers():
 def nurse():
     return render_template('nurse.html')
 
-@app.route('/physician.html')
+@app.route('/physician')
 def physician():
     return render_template('physician.html')
 
-@app.route('/pharmacist.html')
+@app.route('/pharmacist')
 def pharmacist():
     return render_template('pharmacist.html')
 
-@app.route('/pediatric-nurse.html')
+@app.route('/pediatric-nurse')
 def pediatric_nurse():
     return render_template('pediatric-nurse.html')
 
-@app.route('/dental-hygienist.html')
+@app.route('/dental-hygienist')
 def dental_hygienist():
     return render_template('dental-hygienist.html')
 
-@app.route('/radiologic-technologist.html')
+@app.route('/radiologic-technologist')
 def radiologic_technologist():
     return render_template('radiologic-technologist.html')
 
-@app.route('/chiropractor.html')
+@app.route('/chiropractor')
 def chiropractor():
     return render_template('chiropractor.html')
 
-@app.route('/pediatrician.html')
+@app.route('/pediatrician')
 def pediatrician():
     return render_template('pediatrician.html')
 
-@app.route('/speech-therapist.html')
+@app.route('/speech-therapist')
 def speech_therapist():
     return render_template('speech-therapist.html')
 
-@app.route('/occupational-therapist.html')
+@app.route('/occupational-therapist')
 def occupational_therapist():
     return render_template('occupational-therapist.html')
 
-@app.route('/rehabilitation-counselor.html')
+@app.route('/rehabilitation-counselor')
 def rehabilitation_counselor():
     return render_template('rehabilitation-counselor.html')
 
-@app.route('/physical-therapist.html')
+@app.route('/physical-therapist')
 def physical_therapist():
     return render_template('physical-therapist.html')
 
 
 
 
-@app.route('/research-scientist.html')
+@app.route('/research-scientist')
 def research_scientist():
     return render_template('research-scientist.html')
 
-@app.route('/biologist.html')
+@app.route('/biologist')
 def biologist():
     return render_template('biologist.html')
 
-@app.route('/environmental-scientist.html')
+@app.route('/environmental-scientist')
 def environmental_scientist():
     return render_template('environmental-scientist.html')
 
-@app.route('/astronomer.html')
+@app.route('/astronomer')
 def astronomer():
     return render_template('astronomer.html')
 
-@app.route('/zoologist.html')
+@app.route('/zoologist')
 def zoologist():
     return render_template('zoologist.html')
 
-@app.route('/wildlife-biologist.html')
+@app.route('/wildlife-biologist')
 def wildlife_biologist():
     return render_template('wildlife-biologist.html')
 
-@app.route('/marine-biologist.html')
+@app.route('/marine-biologist')
 def marine_biologist():
     return render_template('marine-biologist.html')
 
-@app.route('/forensic-scientist.html')
+@app.route('/forensic-scientist')
 def forensic_scientist():
     return render_template('forensic-scientist.html')
 
-@app.route('/biotechnologist.html')
+@app.route('/biotechnologist')
 def biotechnologist():
     return render_template('biotechnologist.html')
 
-@app.route('/biomedical-researcher.html')
+@app.route('/biomedical-researcher')
 def biomedical_researcher():
     return render_template('biomedical-researcher.html')
 
-@app.route('/forensic-psychologist.html')
+@app.route('/forensic-psychologist')
 def forensic_psychologist():
     return render_template('forensic-psychologist.html')
 
-@app.route('/genetic-counselor.html')
+@app.route('/genetic-counselor')
 def genetic_counselor():
     return render_template('genetic-counselor.html')
 
-@app.route('/geologist.html')
+@app.route('/geologist')
 def geologist():
     return render_template('geologist.html')
 
 
 
-@app.route('/software-developer.html')
+@app.route('/software-developer')
 def software_developer():
     return render_template('software-developer.html')
 
-@app.route('/it-support-specialist.html')
+@app.route('/it-support-specialist')
 def it_support_specialist():
     return render_template('it-support-specialist.html')
 
-@app.route('/biomedical-engineer.html')
+@app.route('/biomedical-engineer')
 def biomedical_engineer():
     return render_template('biomedical-engineer.html')
 
-@app.route('/data-analyst.html')
+@app.route('/data-analyst')
 def data_analyst():
     return render_template('data-analyst.html')
 
-@app.route('/software-quality-assurance-tester.html')
+@app.route('/software-quality-assurance-tester')
 def software_quality_assurance_tester():
     return render_template('software-quality-assurance-tester.html')
 
-@app.route('/industrial-engineer.html')
+@app.route('/industrial-engineer')
 def industrial_engineer():
     return render_template('industrial-engineer.html')
 
-@app.route('/mechanical-engineer.html')
+@app.route('/mechanical-engineer')
 def mechanical_engineer():
     return render_template('mechanical-engineer.html')
 
-@app.route('/aerospace-engineer.html')
+@app.route('/aerospace-engineer')
 def aerospace_engineer():
     return render_template('aerospace-engineer.html')
 
-@app.route('/database-administrator.html')
+@app.route('/database-administrator')
 def database_administrator():
     return render_template('database-administrator.html')
 
-@app.route('/electrical-engineer.html')
+@app.route('/electrical-engineer')
 def electrical_engineer():
     return render_template('electrical-engineer.html')
 
-@app.route('/civil-engineer.html')
+@app.route('/civil-engineer')
 def civil_engineer():
     return render_template('civil-engineer.html')
 
-@app.route('/robotics-engineer.html')
+@app.route('/robotics-engineer')
 def robotics_engineer():
     return render_template('robotics-engineer.html')
 
-@app.route('/electronics-design-engineer.html')
+@app.route('/electronics-design-engineer')
 def electronics_design_engineer():
     return render_template('electronics-design-engineer.html')
 
-@app.route('/web-developer.html')
+@app.route('/web-developer')
 def web_developer():
     return render_template('web-developer.html')
 
-@app.route('/game-developer.html')
+@app.route('/game-developer')
 def game_developer():
     return render_template('game-developer.html')
 
 
 
-@app.route('/graphic-designer.html')
+@app.route('/graphic-designer')
 def graphic_designer():
     return render_template('graphic-designer.html')
 
-@app.route('/architect.html')
+@app.route('/architect')
 def architect():
     return render_template('architect.html')
 
-@app.route('/artist.html')
+@app.route('/artist')
 def artist():
     return render_template('artist.html')
 
-@app.route('/fashion-designer.html')
+@app.route('/fashion-designer')
 def fashion_designer():
     return render_template('fashion-designer.html')
 
-@app.route('/interior-designer.html')
+@app.route('/interior-designer')
 def interior_designer():
     return render_template('interior-designer.html')
 
-@app.route('/event-photographer.html')
+@app.route('/event-photographer')
 def event_photographer():
     return render_template('event-photographer.html')
 
-@app.route('/mechanical-designer.html')
+@app.route('/mechanical-designer')
 def mechanical_designer():
     return render_template('mechanical-designer.html')
 
-@app.route('/fashion-stylist.html')
+@app.route('/fashion-stylist')
 def fashion_stylist():
     return render_template('fashion-stylist.html')
 
 
-
+@app.route("/teacher")
 def teacher():
     return render_template('teacher.html')
 
-@app.route('/elementary-school-teacher.html')
+@app.route('/elementary-school-teacher')
 def elementary_school_teacher():
     return render_template('elementary-school-teacher.html')
 
-@app.route('/speech-pathologist.html')
+@app.route('/speech-pathologist')
 def speech_pathologist():
     return render_template('speech-pathologist.html')
 
-@app.route('/education.html')
+@app.route('/education')
 def education():
     return render_template('education.html')
 
 
 
 
-@app.route('/accountant.html')
+@app.route('/accountant')
 def accountant():
     return render_template('accountant.html')
 
-@app.route('/salesperson.html')
+@app.route('/salesperson')
 def salesperson():
     return render_template('salesperson.html')
 
-@app.route('/marketing-manager.html')
+@app.route('/marketing-manager')
 def marketing_manager():
     return render_template('marketing-manager.html')
 
-@app.route('/human-resources-manager.html')
+@app.route('/human-resources-manager')
 def human_resources_manager():
     return render_template('human-resources-manager.html')
 
-@app.route('/financial-analyst.html')
+@app.route('/financial-analyst')
 def financial_analyst():
     return render_template('financial-analyst.html')
 
-@app.route('/financial-planner.html')
+@app.route('/financial-planner')
 def financial_planner():
     return render_template('financial-planner.html')
 
-@app.route('/hr-recruiter.html')
+@app.route('/hr-recruiter')
 def hr_recruiter():
     return render_template('hr-recruiter.html')
 
-@app.route('/market-research-analyst.html')
+@app.route('/market-research-analyst')
 def market_research_analyst():
     return render_template('market-research-analyst.html')
 
-@app.route('/financial-auditor.html')
+@app.route('/financial-auditor')
 def financial_auditor():
     return render_template('financial-auditor.html')
 
-@app.route('/financial-advisor.html')
+@app.route('/financial-advisor')
 def financial_advisor():
     return render_template('financial-advisor.html')
 
-@app.route('/investment-banker.html')
+@app.route('/investment-banker')
 def investment_banker():
     return render_template('investment-banker.html')
 
-@app.route('/tax-accountant.html')
+@app.route('/tax-accountant')
 def tax_accountant():
     return render_template('tax-accountant.html')
 
-@app.route('/quality-control-inspector.html')
+@app.route('/quality-control-inspector')
 def quality_control_inspector():
     return render_template('quality-control-inspector.html')
 
-@app.route('/product-manager.html')
+@app.route('/product-manager')
 def product_manager():
     return render_template('product-manager.html')
 
-@app.route('/market-researcher.html')
+@app.route('/market-researcher')
 def market_researcher():
     return render_template('market-researcher.html')
 
-@app.route('/insurance-underwriter.html')
+@app.route('/insurance-underwriter')
 def insurance_underwriter():
     return render_template('insurance-underwriter.html')
 
-@app.route('/tax-collector.html')
+@app.route('/tax-collector')
 def tax_collector():
     return render_template('tax-collector.html')
 
-@app.route('/administrative-officer.html')
+@app.route('/administrative-officer')
 def administrative_officer():
     return render_template('administrative-officer.html')
 
 
 
-@app.route('/lawyer.html')
+@app.route('/lawyer')
 def lawyer():
     return render_template('lawyer.html')
 
-@app.route('/police-detective.html')
+@app.route('/police-detective')
 def police_detective():
     return render_template('police-detective.html')
 
-@app.route('/marriage-counselor.html')
+@app.route('/marriage-counselor')
 def marriage_counselor():
     return render_template('marriage-counselor.html')
 
-@app.route('/human-rights-lawyer.html')
+@app.route('/human-rights-lawyer')
 def human_rights_lawyer():
     return render_template('human-rights-lawyer.html')
 
-@app.route('/police-officer.html')
+@app.route('/police-officer')
 def police_officer():
     return render_template('police-officer.html')
 
-@app.route('/diplomat.html')
+@app.route('/diplomat')
 def diplomat():
     return render_template('diplomat.html')
 
-@app.route('/foreign-service-officer.html')
+@app.route('/foreign-service-officer')
 def foreign_service_officer():
     return render_template('foreign-service-officer.html')
 
-@app.route('/customs-and-border-protection-officer.html')
+@app.route('/customs-and-border-protection-officer')
 def customs_and_border_protection_officer():
     return render_template('customs-and-border-protection-officer.html')
 
 
 
 
-@app.route('/chef.html')
+@app.route('/chef')
 def chef():
     return render_template('chef.html')
 
-@app.route('/event-planner.html')
+@app.route('/event-planner')
 def event_planner():
     return render_template('event-planner.html')
 
@@ -438,60 +440,60 @@ def event_planner():
 def real_estate_agent():
     return render_template('real-estate-agent.html')
 
-@app.route('/musician.html')
+@app.route('/musician')
 def musician():
     return render_template('musician.html')
 
-@app.route('/air-traffic-controller.html')
+@app.route('/air-traffic-controller')
 def air_traffic_controller():
     return render_template('air-traffic-controller.html')
 
-@app.route('/urban-planner.html')
+@app.route('/urban-planner')
 def urban_planner():
     return render_template('urban-planner.html')
 
-@app.route('/airline-pilot.html')
+@app.route('/airline-pilot')
 def airline_pilot():
     return render_template('airline-pilot.html')
 
-@app.route('/advertising-executive.html')
+@app.route('/advertising-executive')
 def advertising_executive():
     return render_template('advertising-executive.html')
 
-@app.route('/it-project-manager.html')
+@app.route('/it-project-manager')
 def it_project_manager():
     return render_template('it-project-manager.html')
 
-@app.route('/video-game-tester.html')
+@app.route('/video-game-tester')
 def video_game_tester():
     return render_template('video-game-tester.html')
 
-@app.route('/sports-coach.html')
+@app.route('/sports-coach')
 def sports_coach():
     return render_template('sports-coach.html')
 
-@app.route('/film-director.html')
+@app.route('/film-director')
 def film_director():
     return render_template('film-director.html')
 
-@app.route('/database-analyst.html')
+@app.route('/database-analyst')
 def database_analyst():
     return render_template('database-analyst.html')
 
-@app.route('/public-health-analyst.html')
+@app.route('/public-health-analyst')
 def public_health_analyst():
     return render_template('public-health-analyst.html')
 
-@app.route('/forestry-technician.html')
+@app.route('/forestry-technician')
 def forestry_technician():
     return render_template('forestry-technician.html')
 
-@app.route('/wildlife-conservationist.html')
+@app.route('/wildlife-conservationist')
 def wildlife_conservationist():
     return render_template('wildlife-conservationist.html')
 
 
-@app.route('/design-and-creative-arts.html')
+@app.route('/design-and-creative-arts')
 def design():
     return render_template('design-and-creative-arts.html')
 
@@ -522,7 +524,7 @@ def logout():
     session.pop('login_email',None)
     return redirect('/login')
 
-@app.route('/healthcare-and-medical.html')
+@app.route('/healthcare-and-medical')
 def health_care_medical():
     return render_template('healthcare-and-medical.html')
 
@@ -530,23 +532,27 @@ def health_care_medical():
 def secienceeee():
     return render_template('science-and-research.html')
 
-@app.route('/engineering-and-technology.html')
+@app.route('/engineering-and-technology')
 def engineeringggggg():
     return render_template('engineering-and-technology.html')
 
 
-@app.route('/business-and-finance.html')
+@app.route('/business-and-finance')
 def business():
     return render_template('business-and-finance.html')
 
-@app.route('/law-and-public-service.html')
+@app.route('/law-and-public-service')
 def laww():
     return render_template('law-and-public-service.html')
 
 
-@app.route('/media-and-communication.html')
+@app.route('/media-and-communication')
 def meediaa():
     return render_template('media-and-communication.html')
+
+@app.route('/forum')
+def forum():
+    return render_template('communication.html')
 
 
 
@@ -706,6 +712,103 @@ def send_payment_email(email, payment_id, order_id):
     result = mailjet.send.create(data=payload)
     if result.status_code != 200:
         print(f"Failed to send email: {result.json()}")
+
+
+    #------------------------------------- forum db ------------------------------------
+
+def init_db():
+    conn = sqlite3.connect('questions.db')
+    cursor = conn.cursor()
+   
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS questions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            question TEXT NOT NULL,
+            likes INTEGER DEFAULT 0,
+            dislikes INTEGER DEFAULT 0
+        )
+    ''')
+  
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS replies (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            question_id INTEGER NOT NULL,
+            reply TEXT NOT NULL,
+            FOREIGN KEY (question_id) REFERENCES questions(id)
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+init_db()
+
+@app.route('/submit_question', methods=['POST'])
+def submit_question():
+    question = request.form['question'].strip()
+    
+    if len(question) < 5:
+        return "Invalid question. It must contain at least 5 characters.", 400
+    
+    conn = sqlite3.connect('questions.db')
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO questions (question) VALUES (?)', (question,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('forum'))
+
+
+@app.route('/submit_reply/<int:question_id>', methods=['POST'])
+def submit_reply(question_id):
+    reply = request.form['reply']
+    if len(reply) < 3:
+        return "Invalid reply. It must contain at least 3 characters.", 400
+
+    conn = sqlite3.connect('questions.db')
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO replies (question_id, reply) VALUES (?, ?)', (question_id, reply))
+    conn.commit()
+    conn.close()
+    return 'Reply submitted successfully!'
+
+@app.route('/vote/<int:question_id>/<action>', methods=['POST'])
+def vote(question_id, action):
+    conn = sqlite3.connect('questions.db')
+    cursor = conn.cursor()
+    if action == 'like':
+        cursor.execute('UPDATE questions SET likes = likes + 1 WHERE id = ?', (question_id,))
+    elif action == 'dislike':
+        cursor.execute('UPDATE questions SET dislikes = dislikes + 1 WHERE id = ?', (question_id,))
+    conn.commit()
+    conn.close()
+    return 'Vote submitted!'
+
+
+@app.route('/get_questions_with_replies', methods=['GET'])
+def get_questions_with_replies():
+    conn = sqlite3.connect('questions.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM questions')
+    questions = cursor.fetchall()
+    
+    result = []
+    for question in questions:
+        cursor.execute('SELECT * FROM replies WHERE question_id = ?', (question[0],))
+        replies = cursor.fetchall()
+        result.append({'question': question, 'replies': replies})
+    
+    conn.close()
+    return jsonify(result)
+
+
+@app.route('/delete_question/<int:id>', methods=['POST'])
+def delete_question(id):
+    conn = sqlite3.connect('questions.db')
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM replies WHERE question_id = ?', (id,))
+    cursor.execute('DELETE FROM questions WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    return 'Question deleted successfully!'
 
 
 
