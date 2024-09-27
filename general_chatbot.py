@@ -2,15 +2,20 @@ from flask import Flask, request, jsonify
 from transformers import pipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import re
+import os
 app = Flask(__name__)
+api_token = os.getenv("HUGGINGFACE_API_KEY")
+
 # Load the model and tokenizer
 model_name = "google/gemma-2-2b"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+#tokenizer = AutoTokenizer.from_pretrained(model_name,use_auth_token=True)
+tokenizer = AutoTokenizer.from_pretrained("t5-large",use_auth_token=True)
+model = AutoModelForCausalLM.from_pretrained(model_name,use_auth_token=True)
 
 pipe = pipeline(
     "text-generation",
     model=model,
+    tokenizer=tokenizer,
     device="cuda", 
     max_new_tokens=256, 
     no_repeat_ngram_size=3, 
