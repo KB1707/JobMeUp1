@@ -144,9 +144,12 @@ function printpdf() {
     }
 }
 
-  function saveresume() {
-    var sec = document.getElementById("print");
-    value1 = sec.innerHTML;
-    var info = document.getElementById("custinfo");
-    info.value = value1;
-  }
+function savepdf(){
+
+    const buttons = document.querySelectorAll('.button1, .button2');
+    
+    buttons.forEach(button => {
+        button.style.display = 'none';
+    });
+
+}
