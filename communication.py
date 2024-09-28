@@ -92,15 +92,5 @@ def get_questions_with_replies():
     return jsonify(result)
 
 
-@app.route('/delete_question/<int:id>', methods=['POST'])
-def delete_question(id):
-    conn = sqlite3.connect('questions.db')
-    cursor = conn.cursor()
-    cursor.execute('DELETE FROM replies WHERE question_id = ?', (id,))
-    cursor.execute('DELETE FROM questions WHERE id = ?', (id,))
-    conn.commit()
-    conn.close()
-    return 'Question deleted successfully!'
-
 if __name__ == '__main__':
     app.run(debug=True)
