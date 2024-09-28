@@ -134,3 +134,45 @@ i.fa-thumbs-up:hover {
 i.fa-thumbs-down:hover {
     color: red;
 }
+
+/* Tag styling */
+label[for="tags"] {
+    font-weight: normal;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+input[type="text"]#tags {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]#tags:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+input[type="text"]#tags::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 12px;
+    margin-right: 5px;
+    font-size: 0.9em;
+}
+
+.tag:hover {
+    background-color: #2980b9;
+}
