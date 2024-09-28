@@ -434,7 +434,7 @@ def chef():
 def event_planner():
     return render_template('event-planner.html')
 
-@app.route('/real-estate-agent.html')
+@app.route('/real-estate-agent')
 def real_estate_agent():
     return render_template('real-estate-agent.html')
 
@@ -496,23 +496,23 @@ def design():
     return render_template('design-and-creative-arts.html')
 
 
-@app.route('/journalist.html')
+@app.route('/journalist')
 def journalist():
     return render_template('journalist.html')
 
-@app.route('/social-media-manager.html')
+@app.route('/social-media-manager')
 def social_media_manager():
     return render_template('social-media-manager.html')
 
-@app.route('/marketing-copywriter.html')
+@app.route('/marketing-copywriter')
 def marketing_copywriter():
     return render_template('marketing-copywriter.html')
 
-@app.route('/public-relations-specialist.html')
+@app.route('/public-relations-specialist')
 def public_relations_specialist():
     return render_template('public-relations-specialist.html')
 
-@app.route('/technical-writer.html')
+@app.route('/technical-writer')
 def technical_writer():
     return render_template('technical-writer.html')
 
@@ -547,7 +547,7 @@ def logout():
 def health_care_medical():
     return render_template('healthcare-and-medical.html')
 
-@app.route('/science-and-research.html')
+@app.route('/science-and-research')
 def secienceeee():
     return render_template('science-and-research.html')
 
