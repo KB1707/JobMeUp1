@@ -149,8 +149,6 @@ def physical_therapist():
     return render_template('physical-therapist.html')
 
 
-
-
 @app.route('/research-scientist')
 def research_scientist():
     return render_template('research-scientist.html')
@@ -496,10 +494,6 @@ def wildlife_conservationist():
 @app.route('/design-and-creative-arts')
 def design():
     return render_template('design-and-creative-arts.html')
-
-@app.route('/civil-engineer.html')
-def civil_engineer():
-    return render_template('civil-engineer.html')
 
 
 @app.route('/journalist.html')
