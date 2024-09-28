@@ -497,6 +497,31 @@ def wildlife_conservationist():
 def design():
     return render_template('design-and-creative-arts.html')
 
+@app.route('/civil-engineer.html')
+def civil_engineer():
+    return render_template('civil-engineer.html')
+
+
+@app.route('/journalist.html')
+def journalist():
+    return render_template('journalist.html')
+
+@app.route('/social-media-manager.html')
+def social_media_manager():
+    return render_template('social-media-manager.html')
+
+@app.route('/marketing-copywriter.html')
+def marketing_copywriter():
+    return render_template('marketing-copywriter.html')
+
+@app.route('/public-relations-specialist.html')
+def public_relations_specialist():
+    return render_template('public-relations-specialist.html')
+
+@app.route('/technical-writer.html')
+def technical_writer():
+    return render_template('technical-writer.html')
+
 
 
 @app.route('/job_posting')
